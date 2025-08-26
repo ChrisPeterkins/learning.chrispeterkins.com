@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - Animation Techniques</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        
+        .info h2 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .stats {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            background: rgba(0,0,0,0.9);
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <div class="info">
+        <h2>Lesson 5: Animation Techniques</h2>
+        <p><strong>Key Concepts:</strong></p>
+        <ul>
+            <li>Linear motion (red cube)</li>
+            <li>Circular motion (blue sphere)</li>
+            <li>Sine wave motion (green cone)</li>
+            <li>Spring physics (yellow torus)</li>
+            <li>Lerp interpolation (purple cylinder)</li>
+        </ul>
+        <p>Essential for creating smooth game animations!</p>
+    </div>
+    
+    <div class="stats">
+        <div>FPS: <span id="fps">0</span></div>
+        <div>Delta Time: <span id="delta">0</span>ms</div>
+    </div>
+    
+    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    
+    <script type="module" src="animation.js"></script>
+</body>
+</html>

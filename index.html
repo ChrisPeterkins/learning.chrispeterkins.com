@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Learning Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .roadmap {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .roadmap h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .phase {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .phase h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase ul {
+            margin-left: 1.5rem;
+            color: #666;
+        }
+        
+        .phase li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .example-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .example-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .example-card .level {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .example-card .level.beginner { background: #e8f5e9; color: #2e7d32; }
+        .example-card .level.intermediate { background: #fff3e0; color: #f57c00; }
+        .example-card .level.advanced { background: #fce4ec; color: #c2185b; }
+        
+        .resources {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .resources h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .resources ul {
+            list-style: none;
+        }
+        
+        .resources li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resources a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .resources a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Three.js Learning Hub</h1>
+        
+        <div class="roadmap">
+            <h2>📚 Learning Roadmap</h2>
+            
+            <div class="phase">
+                <h3>Phase 1: Foundation (Week 1-2)</h3>
+                <ul>
+                    <li>Understanding 3D coordinate systems</li>
+                    <li>Scene, Camera, Renderer basics</li>
+                    <li>Basic geometries (Box, Sphere, Plane)</li>
+                    <li>Basic materials and colors</li>
+                    <li>Simple animations with requestAnimationFrame</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 2: Visual Enhancement (Week 3-4)</h3>
+                <ul>
+                    <li>Lighting types (Ambient, Directional, Point, Spot)</li>
+                    <li>Shadows and reflections</li>
+                    <li>Textures and UV mapping</li>
+                    <li>Loading 3D models (GLTF/GLB)</li>
+                    <li>Post-processing effects</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 3: Interactivity (Week 5-6)</h3>
+                <ul>
+                    <li>Camera controls (Orbit, Fly, First-person)</li>
+                    <li>Raycasting for mouse interaction</li>
+                    <li>Object selection and manipulation</li>
+                    <li>Keyboard and gamepad input</li>
+                    <li>GUI controls with dat.gui</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 4: Game Development (Week 7-8)</h3>
+                <ul>
+                    <li>Physics integration (Cannon.js)</li>
+                    <li>Collision detection</li>
+                    <li>Particle systems</li>
+                    <li>Audio integration</li>
+                    <li>Performance optimization</li>
+                    <li>Game loop and state management</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 style="color: white; margin-bottom: 2rem;">🚀 Interactive Examples</h2>
+        
+        <div class="examples-grid">
+            <a href="examples/01-basics/index.html" class="example-card">
+                <span class="level beginner">Beginner</span>
+                <h3>01. Basics</h3>
+                <p>Learn about scenes, cameras, renderers, and creating your first 3D object.</p>
+            </a>
+            
+            <a href="examples/02-geometries/index.html" class="example-card">
+                <span class="level beginner">Beginner</span>
+                <h3>02. Geometries</h3>
+                <p>Explore different geometry types and how to create custom shapes.</p>
+            </a>
+            
+            <a href="examples/03-materials/index.html" class="example-card">
+                <span class="level beginner">Beginner</span>
+                <h3>03. Materials</h3>
+                <p>Understand different material types and their properties.</p>
+            </a>
+            
+            <a href="examples/04-lighting/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>04. Lighting</h3>
+                <p>Master different light types and create realistic shadows.</p>
+            </a>
+            
+            <a href="examples/05-animation/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>05. Animation</h3>
+                <p>Create smooth animations and learn about the animation loop.</p>
+            </a>
+            
+            <a href="examples/06-controls/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>06. Controls</h3>
+                <p>Implement camera controls and user input handling.</p>
+            </a>
+            
+            <a href="examples/07-textures/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>07. Textures</h3>
+                <p>Apply textures and understand UV mapping.</p>
+            </a>
+            
+            <a href="examples/08-models/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>08. 3D Models</h3>
+                <p>Load and manipulate external 3D models.</p>
+            </a>
+            
+            <a href="examples/09-interaction/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>09. Interaction</h3>
+                <p>Implement raycasting and object selection.</p>
+            </a>
+            
+            <a href="examples/10-physics/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>10. Physics</h3>
+                <p>Integrate physics engine for realistic motion.</p>
+            </a>
+            
+            <a href="examples/11-shaders/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>11. Shaders</h3>
+                <p>Write custom shaders for unique visual effects.</p>
+            </a>
+            
+            <a href="examples/12-game-concepts/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>12. Game Concepts</h3>
+                <p>Build a mini-game with all concepts combined.</p>
+            </a>
+        </div>
+        
+        <div class="resources">
+            <h2>📖 Helpful Resources</h2>
+            <ul>
+                <li>📘 <a href="https://threejs.org/docs/" target="_blank">Official Three.js Documentation</a></li>
+                <li>🎓 <a href="https://threejs.org/examples/" target="_blank">Three.js Examples Gallery</a></li>
+                <li>💡 <a href="https://discoverthreejs.com/" target="_blank">Discover Three.js Book</a></li>
+                <li>🎮 <a href="https://github.com/mrdoob/three.js/" target="_blank">Three.js GitHub Repository</a></li>
+                <li>🛠️ <a href="https://threejs.org/editor/" target="_blank">Three.js Editor</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
