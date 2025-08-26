@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01 - Three.js Basics</title>
+    <title>11 - Shaders</title>
     <style>
         body {
             margin: 0;
@@ -32,27 +32,34 @@
             color: #00a550;
         }
         
-        .controls {
+        .shader-controls {
             position: absolute;
             bottom: 10px;
             left: 10px;
             background: rgba(0,0,0,0.7);
             padding: 15px;
             border-radius: 5px;
+            color: white;
         }
         
-        .controls button {
-            margin-right: 10px;
+        .shader-controls button {
+            margin: 5px;
             padding: 8px 15px;
             background: #00a550;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            display: block;
+            width: 180px;
         }
         
-        .controls button:hover {
+        .shader-controls button:hover {
             background: #007a3d;
+        }
+        
+        .shader-controls button.active {
+            background: #45b7d1;
         }
         
         .back-link {
@@ -75,27 +82,28 @@
     <div id="canvas-container"></div>
     
     <div class="info">
-        <h2>Lesson 1: Three.js Basics</h2>
-        <p><strong>Core Concepts:</strong></p>
+        <h2>Lesson 11: Custom Shaders</h2>
+        <p><strong>Shader Concepts:</strong></p>
         <ul>
-            <li><strong>Scene:</strong> Container for all 3D objects</li>
-            <li><strong>Camera:</strong> Defines the view (PerspectiveCamera)</li>
-            <li><strong>Renderer:</strong> Draws the scene (WebGLRenderer)</li>
-            <li><strong>Mesh:</strong> Combination of geometry + material</li>
+            <li><strong>Vertex Shader:</strong> Manipulates geometry</li>
+            <li><strong>Fragment Shader:</strong> Determines pixel colors</li>
+            <li><strong>Uniforms:</strong> Global shader variables</li>
+            <li><strong>Attributes:</strong> Per-vertex data</li>
         </ul>
-        <p>Use the buttons below to explore different basic shapes!</p>
+        <p>Shaders enable unique visual effects for games!</p>
     </div>
     
-    <div class="controls">
-        <button onclick="changeShape('cube')">Cube</button>
-        <button onclick="changeShape('sphere')">Sphere</button>
-        <button onclick="changeShape('cone')">Cone</button>
-        <button onclick="changeShape('torus')">Torus</button>
-        <button onclick="toggleRotation()">Toggle Rotation</button>
+    <div class="shader-controls">
+        <h3 style="margin-top: 0; color: #00a550;">Shader Effects</h3>
+        <button onclick="switchShader('wave')" class="active">Wave Effect</button>
+        <button onclick="switchShader('rainbow')">Rainbow</button>
+        <button onclick="switchShader('dissolve')">Dissolve</button>
+        <button onclick="switchShader('hologram')">Hologram</button>
+        <button onclick="switchShader('energy')">Energy Field</button>
     </div>
     
     <a href="../../index.html" class="back-link">← Back to Hub</a>
     
-    <script type="module" src="basics.js"></script>
+    <script type="module" src="shaders.js"></script>
 </body>
 </html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Camera Controls</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        
+        .info h2 {
+            margin-top: 0;
+            color: #00a550;
+        }
+        
+        .control-panel {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .control-panel button {
+            margin: 5px;
+            padding: 8px 15px;
+            background: #00a550;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 150px;
+        }
+        
+        .control-panel button:hover {
+            background: #007a3d;
+        }
+        
+        .control-panel button.active {
+            background: #45b7d1;
+        }
+        
+        .instructions {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            max-width: 300px;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #00a550;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: none;
+            pointer-events: none;
+        }
+        
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: white;
+        }
+        
+        .crosshair::before {
+            width: 2px;
+            height: 30px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .crosshair::after {
+            width: 30px;
+            height: 2px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div class="crosshair"></div>
+    
+    <div class="info">
+        <h2>Lesson 6: Camera Controls</h2>
+        <p><strong>Control Types for Games:</strong></p>
+        <ul>
+            <li><strong>Orbit:</strong> Third-person view</li>
+            <li><strong>First Person:</strong> FPS-style controls</li>
+            <li><strong>Fly:</strong> Free flight movement</li>
+            <li><strong>Transform:</strong> Object manipulation</li>
+        </ul>
+        <p>Essential for different game genres!</p>
+    </div>
+    
+    <div class="control-panel">
+        <h3 style="color: white; margin-top: 0;">Control Types</h3>
+        <button onclick="switchControls('orbit')" class="active">Orbit Controls</button>
+        <button onclick="switchControls('firstperson')">First Person</button>
+        <button onclick="switchControls('fly')">Fly Controls</button>
+        <button onclick="switchControls('transform')">Transform Controls</button>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <div id="control-instructions">
+            <strong>Orbit Controls:</strong><br>
+            • Left Click: Rotate<br>
+            • Right Click: Pan<br>
+            • Scroll: Zoom
+        </div>
+    </div>
+    
+    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    
+    <script type="module" src="controls.js"></script>
+</body>
+</html>

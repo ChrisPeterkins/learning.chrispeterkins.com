@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01 - Three.js Basics</title>
+    <title>08 - 3D Models</title>
     <style>
         body {
             margin: 0;
@@ -32,27 +32,40 @@
             color: #00a550;
         }
         
-        .controls {
+        .model-controls {
             position: absolute;
             bottom: 10px;
             left: 10px;
             background: rgba(0,0,0,0.7);
             padding: 15px;
             border-radius: 5px;
+            color: white;
         }
         
-        .controls button {
-            margin-right: 10px;
+        .model-controls button {
+            margin: 5px;
             padding: 8px 15px;
             background: #00a550;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            display: block;
+            width: 150px;
         }
         
-        .controls button:hover {
+        .model-controls button:hover {
             background: #007a3d;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            display: none;
         }
         
         .back-link {
@@ -73,29 +86,31 @@
 </head>
 <body>
     <div id="canvas-container"></div>
+    <div class="loading">Loading Model...</div>
     
     <div class="info">
-        <h2>Lesson 1: Three.js Basics</h2>
-        <p><strong>Core Concepts:</strong></p>
+        <h2>Lesson 8: 3D Model Loading</h2>
+        <p><strong>Model Formats:</strong></p>
         <ul>
-            <li><strong>Scene:</strong> Container for all 3D objects</li>
-            <li><strong>Camera:</strong> Defines the view (PerspectiveCamera)</li>
-            <li><strong>Renderer:</strong> Draws the scene (WebGLRenderer)</li>
-            <li><strong>Mesh:</strong> Combination of geometry + material</li>
+            <li><strong>GLTF/GLB:</strong> Recommended format</li>
+            <li><strong>FBX:</strong> Common in game dev</li>
+            <li><strong>OBJ:</strong> Simple geometry format</li>
+            <li><strong>Collada:</strong> XML-based format</li>
         </ul>
-        <p>Use the buttons below to explore different basic shapes!</p>
+        <p>This demo shows procedurally generated "models" and animations!</p>
     </div>
     
-    <div class="controls">
-        <button onclick="changeShape('cube')">Cube</button>
-        <button onclick="changeShape('sphere')">Sphere</button>
-        <button onclick="changeShape('cone')">Cone</button>
-        <button onclick="changeShape('torus')">Torus</button>
-        <button onclick="toggleRotation()">Toggle Rotation</button>
+    <div class="model-controls">
+        <h3 style="margin-top: 0; color: #00a550;">Model Controls</h3>
+        <button onclick="loadModel('robot')">Robot Model</button>
+        <button onclick="loadModel('vehicle')">Vehicle Model</button>
+        <button onclick="loadModel('character')">Character Model</button>
+        <button onclick="toggleAnimation()">Toggle Animation</button>
+        <button onclick="toggleWireframe()">Toggle Wireframe</button>
     </div>
     
     <a href="../../index.html" class="back-link">← Back to Hub</a>
     
-    <script type="module" src="basics.js"></script>
+    <script type="module" src="models.js"></script>
 </body>
 </html>

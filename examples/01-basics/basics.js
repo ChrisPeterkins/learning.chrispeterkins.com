@@ -67,7 +67,7 @@ function createMesh(type) {
     }
     
     const material = new THREE.MeshPhongMaterial({
-        color: 0x667eea,
+        color: 0x00a550,
         wireframe: false,
         flatShading: false
     });

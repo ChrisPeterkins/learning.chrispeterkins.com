@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01 - Three.js Basics</title>
+    <title>07 - Textures</title>
     <style>
         body {
             margin: 0;
@@ -32,17 +32,18 @@
             color: #00a550;
         }
         
-        .controls {
+        .texture-controls {
             position: absolute;
             bottom: 10px;
             left: 10px;
             background: rgba(0,0,0,0.7);
             padding: 15px;
             border-radius: 5px;
+            color: white;
         }
         
-        .controls button {
-            margin-right: 10px;
+        .texture-controls button {
+            margin: 5px;
             padding: 8px 15px;
             background: #00a550;
             color: white;
@@ -51,7 +52,7 @@
             cursor: pointer;
         }
         
-        .controls button:hover {
+        .texture-controls button:hover {
             background: #007a3d;
         }
         
@@ -75,27 +76,30 @@
     <div id="canvas-container"></div>
     
     <div class="info">
-        <h2>Lesson 1: Three.js Basics</h2>
-        <p><strong>Core Concepts:</strong></p>
+        <h2>Lesson 7: Textures & Maps</h2>
+        <p><strong>Texture Types:</strong></p>
         <ul>
-            <li><strong>Scene:</strong> Container for all 3D objects</li>
-            <li><strong>Camera:</strong> Defines the view (PerspectiveCamera)</li>
-            <li><strong>Renderer:</strong> Draws the scene (WebGLRenderer)</li>
-            <li><strong>Mesh:</strong> Combination of geometry + material</li>
+            <li><strong>Color Map:</strong> Base color/diffuse</li>
+            <li><strong>Normal Map:</strong> Surface detail illusion</li>
+            <li><strong>Roughness Map:</strong> Surface smoothness</li>
+            <li><strong>Metalness Map:</strong> Metallic properties</li>
+            <li><strong>AO Map:</strong> Ambient occlusion</li>
+            <li><strong>Displacement:</strong> Actual geometry deformation</li>
         </ul>
-        <p>Use the buttons below to explore different basic shapes!</p>
+        <p>Textures bring materials to life in games!</p>
     </div>
     
-    <div class="controls">
-        <button onclick="changeShape('cube')">Cube</button>
-        <button onclick="changeShape('sphere')">Sphere</button>
-        <button onclick="changeShape('cone')">Cone</button>
-        <button onclick="changeShape('torus')">Torus</button>
-        <button onclick="toggleRotation()">Toggle Rotation</button>
+    <div class="texture-controls">
+        <h3 style="margin-top: 0; color: #00a550;">Texture Options</h3>
+        <button onclick="toggleTexture('color')">Toggle Color Map</button>
+        <button onclick="toggleTexture('normal')">Toggle Normal Map</button>
+        <button onclick="toggleTexture('roughness')">Toggle Roughness</button>
+        <button onclick="changeWrapping()">Change Wrapping</button>
+        <button onclick="changeFiltering()">Change Filtering</button>
     </div>
     
     <a href="../../index.html" class="back-link">← Back to Hub</a>
     
-    <script type="module" src="basics.js"></script>
+    <script type="module" src="textures.js"></script>
 </body>
 </html>

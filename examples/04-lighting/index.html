@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - Lighting</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        
+        .info h2 {
+            margin-top: 0;
+            color: #00a550;
+        }
+        
+        .light-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        .light-controls label {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        
+        .light-controls input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        .light-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            background: rgba(0,0,0,0.9);
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <div class="info">
+        <h2>Lesson 4: Lighting Types</h2>
+        <p><strong>Light Types in Three.js:</strong></p>
+        <ul>
+            <li><strong>Ambient:</strong> Uniform lighting everywhere</li>
+            <li><strong>Directional:</strong> Sun-like parallel rays</li>
+            <li><strong>Point:</strong> Light bulb, radiates in all directions</li>
+            <li><strong>Spot:</strong> Flashlight cone</li>
+            <li><strong>Hemisphere:</strong> Sky/ground gradient</li>
+            <li><strong>RectArea:</strong> Window or screen light</li>
+        </ul>
+        <p>Toggle lights below to see their effects!</p>
+    </div>
+    
+    <div class="light-controls">
+        <h3 style="margin-top: 0; color: #00a550;">Light Controls</h3>
+        <label>
+            <input type="checkbox" id="ambient" checked> Ambient Light
+            <span style="background: #808080;"></span>
+        </label>
+        <label>
+            <input type="checkbox" id="directional" checked> Directional Light
+            <span style="background: #ffff00;"></span>
+        </label>
+        <label>
+            <input type="checkbox" id="point1" checked> Point Light (Red)
+            <span style="background: #ff0000;"></span>
+        </label>
+        <label>
+            <input type="checkbox" id="point2" checked> Point Light (Blue)
+            <span style="background: #0000ff;"></span>
+        </label>
+        <label>
+            <input type="checkbox" id="spot" checked> Spot Light
+            <span style="background: #00ff00;"></span>
+        </label>
+        <label>
+            <input type="checkbox" id="hemisphere" checked> Hemisphere Light
+            <span style="background: linear-gradient(#87ceeb, #8b4513);"></span>
+        </label>
+    </div>
+    
+    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    
+    <script type="module" src="lighting.js"></script>
+</body>
+</html>

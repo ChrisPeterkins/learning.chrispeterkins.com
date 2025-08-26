@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09 - Interaction & Raycasting</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+        
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        
+        .info h2 {
+            margin-top: 0;
+            color: #00a550;
+        }
+        
+        .score {
+            position: absolute;
+            top: 10px;
+            right: 120px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 24px;
+        }
+        
+        .score span {
+            color: #ffd93d;
+        }
+        
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            border-radius: 5px;
+            pointer-events: none;
+            display: none;
+            font-size: 14px;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .interaction-mode {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        .interaction-mode button {
+            margin: 5px;
+            padding: 8px 15px;
+            background: #00a550;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .interaction-mode button:hover {
+            background: #007a3d;
+        }
+        
+        .interaction-mode button.active {
+            background: #45b7d1;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <div class="info">
+        <h2>Lesson 9: Interaction & Raycasting</h2>
+        <p><strong>Interactive Features:</strong></p>
+        <ul>
+            <li>Click objects to select/interact</li>
+            <li>Hover for object info</li>
+            <li>Drag to move objects</li>
+            <li>Right-click to delete</li>
+            <li>Double-click to change color</li>
+        </ul>
+        <p>Essential for game mechanics!</p>
+    </div>
+    
+    <div class="score">
+        Score: <span id="score">0</span>
+    </div>
+    
+    <div class="interaction-mode">
+        <h3 style="margin-top: 0; color: #00a550;">Interaction Mode</h3>
+        <button onclick="setMode('select')" class="active">Select</button>
+        <button onclick="setMode('move')">Move</button>
+        <button onclick="setMode('paint')">Paint</button>
+        <button onclick="setMode('destroy')">Destroy</button>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+    
+    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    
+    <script type="module" src="interaction.js"></script>
+</body>
+</html>

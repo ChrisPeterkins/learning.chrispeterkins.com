@@ -56,7 +56,7 @@ function setupLights() {
     directionalLight.shadow.mapSize.height = 2048;
     scene.add(directionalLight);
     
-    const pointLight = new THREE.PointLight(0x667eea, 1, 20);
+    const pointLight = new THREE.PointLight(0x00a550, 1, 20);
     pointLight.position.set(0, 5, 0);
     scene.add(pointLight);
 }
@@ -127,7 +127,7 @@ function createAnimatedObjects() {
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     
     const particleMaterial = new THREE.PointsMaterial({
-        color: 0x667eea,
+        color: 0x00a550,
         size: 0.05,
         transparent: true,
         opacity: 0.6

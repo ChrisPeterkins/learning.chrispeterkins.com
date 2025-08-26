@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01 - Three.js Basics</title>
+    <title>03 - Materials</title>
     <style>
         body {
             margin: 0;
@@ -42,7 +42,7 @@
         }
         
         .controls button {
-            margin-right: 10px;
+            margin: 5px;
             padding: 8px 15px;
             background: #00a550;
             color: white;
@@ -53,6 +53,10 @@
         
         .controls button:hover {
             background: #007a3d;
+        }
+        
+        .controls button.active {
+            background: #45b7d1;
         }
         
         .back-link {
@@ -75,27 +79,31 @@
     <div id="canvas-container"></div>
     
     <div class="info">
-        <h2>Lesson 1: Three.js Basics</h2>
-        <p><strong>Core Concepts:</strong></p>
+        <h2>Lesson 3: Materials</h2>
+        <p><strong>Material Types:</strong></p>
         <ul>
-            <li><strong>Scene:</strong> Container for all 3D objects</li>
-            <li><strong>Camera:</strong> Defines the view (PerspectiveCamera)</li>
-            <li><strong>Renderer:</strong> Draws the scene (WebGLRenderer)</li>
-            <li><strong>Mesh:</strong> Combination of geometry + material</li>
+            <li><strong>Basic:</strong> No lighting, flat color</li>
+            <li><strong>Lambert:</strong> Non-shiny surfaces</li>
+            <li><strong>Phong:</strong> Shiny surfaces</li>
+            <li><strong>Standard:</strong> PBR material (realistic)</li>
+            <li><strong>Physical:</strong> Advanced PBR</li>
+            <li><strong>Toon:</strong> Cartoon shading</li>
         </ul>
-        <p>Use the buttons below to explore different basic shapes!</p>
+        <p>Click buttons to switch between materials!</p>
     </div>
     
     <div class="controls">
-        <button onclick="changeShape('cube')">Cube</button>
-        <button onclick="changeShape('sphere')">Sphere</button>
-        <button onclick="changeShape('cone')">Cone</button>
-        <button onclick="changeShape('torus')">Torus</button>
-        <button onclick="toggleRotation()">Toggle Rotation</button>
+        <button onclick="switchMaterial('basic')">Basic</button>
+        <button onclick="switchMaterial('lambert')">Lambert</button>
+        <button onclick="switchMaterial('phong')">Phong</button>
+        <button onclick="switchMaterial('standard')" class="active">Standard</button>
+        <button onclick="switchMaterial('physical')">Physical</button>
+        <button onclick="switchMaterial('toon')">Toon</button>
+        <button onclick="toggleWireframe()">Toggle Wireframe</button>
     </div>
     
     <a href="../../index.html" class="back-link">← Back to Hub</a>
     
-    <script type="module" src="basics.js"></script>
+    <script type="module" src="materials.js"></script>
 </body>
 </html>

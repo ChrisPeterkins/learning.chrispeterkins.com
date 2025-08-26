@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 - Complete Mini Game</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .game-ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            min-width: 200px;
+        }
+        
+        .game-ui h2 {
+            margin-top: 0;
+            color: #00a550;
+        }
+        
+        .stats {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .stat-bar {
+            background: rgba(255,255,255,0.2);
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .stat-fill {
+            height: 100%;
+            transition: width 0.3s;
+        }
+        
+        .health-fill {
+            background: linear-gradient(90deg, #ff6b6b, #ff4444);
+        }
+        
+        .energy-fill {
+            background: linear-gradient(90deg, #4ecdc4, #2dd4bf);
+        }
+        
+        .score {
+            font-size: 24px;
+            color: #ffd93d;
+        }
+        
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            display: none;
+        }
+        
+        .game-over h2 {
+            color: #ff6b6b;
+            font-size: 36px;
+        }
+        
+        .game-over button {
+            padding: 10px 20px;
+            background: #00a550;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        .game-over button:hover {
+            background: #007a3d;
+        }
+        
+        .instructions {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            max-width: 300px;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #00a550;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .start-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #004225, #002615);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .start-screen h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .start-screen button {
+            padding: 15px 30px;
+            background: white;
+            color: #00a550;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .start-screen button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <div class="start-screen" id="startScreen">
+        <h1>🎮 Crystal Collector</h1>
+        <p>Collect crystals, avoid enemies, survive as long as you can!</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    
+    <div class="game-ui" id="gameUI" style="display: none;">
+        <h2>Crystal Collector</h2>
+        <div class="stats">
+            <div>
+                Health: <span id="healthValue">100</span>
+                <div class="stat-bar">
+                    <div class="stat-fill health-fill" id="healthBar" style="width: 100%"></div>
+                </div>
+            </div>
+            <div>
+                Energy: <span id="energyValue">100</span>
+                <div class="stat-bar">
+                    <div class="stat-fill energy-fill" id="energyBar" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="score">
+                Score: <span id="score">0</span>
+            </div>
+            <div>
+                Level: <span id="level">1</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="instructions" id="instructions" style="display: none;">
+        <h3>Controls</h3>
+        <p>
+            <strong>WASD:</strong> Move<br>
+            <strong>Mouse:</strong> Look around<br>
+            <strong>Space:</strong> Jump<br>
+            <strong>Shift:</strong> Sprint<br>
+            <strong>Click:</strong> Shoot
+        </p>
+    </div>
+    
+    <div class="game-over" id="gameOver">
+        <h2>Game Over!</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <p>Level Reached: <span id="finalLevel">1</span></p>
+        <button onclick="restartGame()">Play Again</button>
+    </div>
+    
+    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    
+    <script type="module" src="game.js"></script>
+</body>
+</html>
