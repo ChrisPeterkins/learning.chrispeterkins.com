@@ -1,3 +1,19 @@
+:root {
+  --bg-primary: #0a0f0d;
+  --bg-secondary: rgba(15, 25, 20, 0.6);
+  --bg-hover: rgba(15, 25, 20, 0.8);
+  --text-primary: #f0f4f2;
+  --text-secondary: #a8bdb2;
+  --text-muted: #8fa99b;
+  --accent-green: #1a5d3a;
+  --accent-green-bright: #4ade80;
+  --border-primary: rgba(26, 93, 58, 0.2);
+  --border-hover: rgba(26, 93, 58, 0.5);
+  --shadow-green: rgba(0, 66, 37, 0.3);
+  --code-bg: rgba(15, 25, 20, 0.9);
+  --code-border: rgba(143, 169, 155, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
