@@ -46,7 +46,13 @@ export default defineConfig({
         webassembly: path.resolve(__dirname, 'projects/webassembly/index.html'),
         stateManagement: path.resolve(__dirname, 'projects/state-management/index.html'),
         creativeCoding: path.resolve(__dirname, 'projects/creative-coding/index.html'),
-        proceduralGeneration: path.resolve(__dirname, 'projects/procedural-generation/index.html')
+        proceduralGeneration: path.resolve(__dirname, 'projects/procedural-generation/index.html'),
+        browserDevtools: path.resolve(__dirname, 'projects/browser-devtools/index.html'),
+        cssAnimations: path.resolve(__dirname, 'projects/css-animations/index.html'),
+        nodejsDeepDive: path.resolve(__dirname, 'projects/nodejs-deep-dive/index.html'),
+        performanceLab: path.resolve(__dirname, 'projects/performance-lab/index.html'),
+        serviceWorkersPwas: path.resolve(__dirname, 'projects/service-workers-pwas/index.html'),
+        microFrontends: path.resolve(__dirname, 'projects/micro-frontends/index.html')
       }
     }
   },
@@ -67,7 +73,13 @@ export default defineConfig({
       '/webassembly/src': path.resolve(__dirname, 'projects/webassembly/src'),
       '/state-management/src': path.resolve(__dirname, 'projects/state-management/src'),
       '/creative-coding/src': path.resolve(__dirname, 'projects/creative-coding/src'),
-      '/procedural-generation/src': path.resolve(__dirname, 'projects/procedural-generation/src')
+      '/procedural-generation/src': path.resolve(__dirname, 'projects/procedural-generation/src'),
+      '/browser-devtools/src': path.resolve(__dirname, 'projects/browser-devtools/src'),
+      '/css-animations/src': path.resolve(__dirname, 'projects/css-animations/src'),
+      '/nodejs-deep-dive/src': path.resolve(__dirname, 'projects/nodejs-deep-dive/src'),
+      '/performance-lab/src': path.resolve(__dirname, 'projects/performance-lab/src'),
+      '/service-workers-pwas/src': path.resolve(__dirname, 'projects/service-workers-pwas/src'),
+      '/micro-frontends/src': path.resolve(__dirname, 'projects/micro-frontends/src')
     }
   },
   optimizeDeps: {
