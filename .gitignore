@@ -10,3 +10,28 @@ dist/
 *~
 .cache/
 coverage/
+
+# Setup documentation and deployment scripts
+SETUP*.md
+LINODE*.md
+deploy.sh
+deploy-*.sh
+push-to-github.sh
+setup*.sh
+*-setup.sh
+
+# Server configuration files  
+server.js
+ecosystem.config.js
+ecosystem.config.cjs
+pm2.config.js
+
+# Build artifacts in project directories
+projects/*/dist/
+projects/*/build/
+projects/*/.cache/
+
+# Package lock files (if you prefer not to track them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
