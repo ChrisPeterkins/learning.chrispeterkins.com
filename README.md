@@ -1,113 +1,297 @@
-# Three.js Learning Repository 🎮
+# Learning Platform - Chris Peterkins 🚀
 
-A comprehensive learning repository for mastering Three.js and 3D web development for games.
+A comprehensive web development learning platform featuring 22+ interactive projects covering modern web technologies, from React patterns to WebAssembly, Three.js to WebRTC, and everything in between.
+
+## 🌟 Overview
+
+This repository contains the complete source code for [learning.chrispeterkins.com](https://learning.chrispeterkins.com), an extensive collection of interactive learning projects and experiments exploring cutting-edge web technologies.
 
 ## 🚀 Getting Started
 
-1. Install dependencies:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Modern web browser
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/ChrisPeterkins/learning.chrispeterkins.com.git
+cd learning.chrispeterkins.com
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Run the development server:
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-3. Open http://localhost:5173 in your browser
+4. Open http://localhost:5173 in your browser
 
-## 📚 Learning Path
+### Production Deployment
 
-### Phase 1: Foundation (Week 1-2)
-- ✅ Scene, Camera, Renderer basics
-- ✅ Basic geometries and meshes
-- ✅ Simple animations
+```bash
+npm run build
+npm start
+```
 
-### Phase 2: Visual Enhancement (Week 3-4)
+## 📚 Learning Projects (22 Interactive Experiences)
+
+### Core Web Technologies
+
+#### 🎨 **React Patterns**
+Deep dive into React hooks, patterns, and best practices
+- All React hooks explained with examples
+- Custom hooks development
+- Performance optimization patterns
+- State management strategies
+
+#### 📦 **State Management**
+Compare modern state management solutions
+- Zustand implementation
+- Jotai atomic state
+- Valtio proxy state
+- Redux comparison
+- Performance benchmarks
+
+#### 🎯 **TypeScript Patterns**
+Advanced TypeScript techniques
+- Generics and utility types
+- Type guards and narrowing
+- Decorator patterns
+- Pattern matching
+
+### Visual & Creative
+
+#### 🎮 **Three.js Examples** (12 interactive demos)
+Complete 3D graphics learning path
+- Basic scene setup
+- Geometries and materials
 - Lighting and shadows
-- Materials and textures
-- 3D model loading
-
-### Phase 3: Interactivity (Week 5-6)
-- Camera controls
-- Raycasting
-- User input handling
-
-### Phase 4: Game Development (Week 7-8)
-- Physics integration
-- Collision detection
-- Game state management
-
-## 🎯 Examples Structure
-
-Each example folder contains:
-- `index.html` - The HTML structure
-- `[name].js` - The Three.js implementation
-- Comments explaining key concepts
-
-## 🛠️ Key Technologies
-
-- **Three.js** - 3D graphics library
-- **Vite** - Build tool and dev server
-- **dat.GUI** - Debug UI controls
-- **Cannon-ES** - Physics engine
-
-## 📖 Learning Tips
-
-1. **Start Simple**: Begin with 01-basics and progress sequentially
-2. **Experiment**: Modify the examples to see what changes
-3. **Read the Code**: Each example has detailed comments
-4. **Use the Console**: Check for errors and debug information
-5. **Reference the Docs**: Three.js documentation is excellent
-
-## 🎮 Game Development Concepts
-
-As you progress, you'll learn:
-- Scene graph management
-- Performance optimization
-- Asset loading and management
 - Animation systems
-- Input handling
-- Physics simulation
-- Particle effects
+- Physics integration
 - Shader programming
+- Game concepts
 
-## 📝 Project Structure
+#### 🎨 **Canvas Animations**
+Creative coding with HTML5 Canvas
+- Particle systems
+- Physics simulations
+- Flow fields
+- Fractals
+- Interactive animations
+
+#### 🌈 **Creative Coding**
+Generative art and procedural design
+- Noise algorithms
+- Pattern generation
+- Audio visualizations
+- Color theory
+- Natural simulations
+
+#### 🏗️ **Procedural Generation**
+Algorithmic content creation
+- Terrain generation
+- Dungeon generation
+- L-Systems
+- Cave systems
+- Maze algorithms
+- World building
+
+#### 🎵 **Web Audio**
+Audio synthesis and processing
+- Basic synthesizers
+- Effects processing
+- Step sequencer
+- Audio visualizations
+- Frequency analysis
+
+#### 🖼️ **WebGL Shaders**
+GPU programming playground
+- Vertex shaders
+- Fragment shaders
+- Shader patterns
+- Post-processing effects
+- Interactive playground
+
+### Architecture & Performance
+
+#### ⚡ **Performance Lab**
+Web performance optimization techniques
+- Bundle analysis
+- Code splitting
+- Lazy loading
+- Image optimization
+- React virtualization
+- Performance metrics
+
+#### 🧪 **Testing Strategies**
+Comprehensive testing approaches
+- Unit testing
+- Integration testing
+- E2E testing
+- Test-driven development
+- React component testing
+- Mocking strategies
+
+#### 🔌 **Service Workers & PWAs**
+Progressive Web App development
+- Offline functionality
+- Caching strategies
+- Background sync
+- Push notifications
+- Install prompts
+
+#### 🏢 **Micro-Frontends**
+Module federation and micro-apps
+- Independent deployments
+- Shared dependencies
+- Runtime integration
+
+### Advanced Technologies
+
+#### 🚀 **WebAssembly**
+High-performance web applications
+- WASM vs JavaScript benchmarks
+- Image processing
+- Cryptographic operations
+- Game physics
+- Data compression
+
+#### 📡 **WebRTC Deep Dive**
+Real-time communication
+- Peer connections
+- Media streams
+- Screen sharing
+- Data channels
+- Video chat implementation
+- Signaling servers
+
+#### 📊 **Data Visualization**
+D3.js and data viz techniques
+- Bar charts and scatter plots
+- Geographic maps
+- Network graphs
+- Real-time data updates
+- Custom visualizations
+
+#### 🎮 **Game Development**
+Browser game programming
+- Game loop architecture
+- Entity-component systems
+- Collision detection
+- Physics engines
+- Sprite animations
+- Input handling
+
+### Development Tools & APIs
+
+#### 🛠️ **Browser DevTools**
+Understanding browser internals
+- Elements inspection
+- Network analysis
+- Performance profiling
+- Memory management
+- Console utilities
+
+#### 🔧 **Node.js Deep Dive**
+Server-side JavaScript mastery
+- Event loop internals
+- Streams and buffers
+- Worker threads
+- Clustering
+- Performance optimization
+
+#### 📡 **GraphQL APIs**
+Modern API development
+- GraphQL vs REST
+- Schemas and types
+- Queries and mutations
+- Subscriptions
+- Real-time APIs
+
+#### 🧮 **Algorithm Visualizations**
+Interactive algorithm demonstrations
+- Sorting algorithms
+- Pathfinding (A*, Dijkstra)
+- Tree traversals
+- Graph algorithms
+- Dynamic programming
+
+#### 💅 **CSS Animations**
+Modern CSS techniques
+- Grid and Flexbox layouts
+- Transitions and transforms
+- Keyframe animations
+- Responsive design
+- Advanced layouts
+
+## 📁 Project Structure
 
 ```
-threejs-learning/
-├── examples/           # Learning examples
-│   ├── 01-basics/     # Core concepts
-│   ├── 02-geometries/ # Shapes and forms
-│   ├── 03-materials/  # Surface properties
-│   ├── 04-lighting/   # Illumination
-│   ├── 05-animation/  # Motion and time
-│   ├── 06-controls/   # User interaction
-│   ├── 07-textures/   # Image mapping
-│   ├── 08-models/     # 3D asset loading
-│   ├── 09-interaction/# Raycasting
-│   ├── 10-physics/    # Realistic motion
-│   ├── 11-shaders/    # GPU programming
-│   └── 12-game-concepts/ # Full game demo
-├── assets/            # Shared resources
-├── utils/             # Helper functions
-└── index.html         # Learning hub
+learning.chrispeterkins.com/
+├── index.html              # Main landing page
+├── projects/               # All learning projects
+│   ├── algorithm-visualizations/
+│   ├── browser-devtools/
+│   ├── canvas-animations/
+│   ├── creative-coding/
+│   ├── css-animations/
+│   ├── data-visualization/
+│   ├── game-development/
+│   ├── graphql-apis/
+│   ├── micro-frontends/
+│   ├── nodejs-deep-dive/
+│   ├── performance-lab/
+│   ├── procedural-generation/
+│   ├── react-patterns/
+│   ├── service-workers-pwas/
+│   ├── state-management/
+│   ├── testing-strategies/
+│   ├── three-js/
+│   ├── typescript-patterns/
+│   ├── web-audio/
+│   ├── webassembly/
+│   ├── webgl-shaders/
+│   └── webrtc-deep-dive/
+├── examples/               # Three.js examples (01-12)
+├── server.js              # Express server
+├── vite.config.js         # Vite configuration
+└── ecosystem.config.cjs   # PM2 configuration
 ```
 
-## 🔗 Useful Resources
+## 🛠️ Technologies Used
 
-- [Three.js Documentation](https://threejs.org/docs/)
-- [Three.js Examples](https://threejs.org/examples/)
-- [Three.js Journey](https://threejs-journey.com/)
-- [Discover Three.js](https://discoverthreejs.com/)
+- **Frontend**: React, TypeScript, Vite
+- **3D Graphics**: Three.js, WebGL
+- **State Management**: Zustand, Jotai, Valtio
+- **Styling**: CSS Modules, Tailwind CSS
+- **Testing**: Vitest, React Testing Library
+- **Build Tools**: Vite, esbuild
+- **Server**: Node.js, Express
+- **Deployment**: PM2, Nginx
 
-## 💡 Next Steps
+## 🌐 Live Demo
 
-After completing the examples:
-1. Build a simple game (platformer, racing, puzzle)
-2. Explore advanced topics (post-processing, instancing)
-3. Learn WebGL shaders
-4. Optimize for mobile devices
-5. Add multiplayer capabilities
+Visit [learning.chrispeterkins.com](https://learning.chrispeterkins.com) to see all projects in action.
 
-Happy learning! 🚀
+## 📝 License
+
+This project is open source and available for learning purposes.
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## 📧 Contact
+
+Chris Peterkins - [chrispeterkins.com](https://chrispeterkins.com)
+
+---
+
+Happy Learning! 🎓✨
