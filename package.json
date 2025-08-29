@@ -17,6 +17,7 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "@types/p5": "^1.7.6",
     "cannon-es": "^0.20.0",
     "dat.gui": "^0.7.9",
     "express": "^4.21.2",
@@ -26,6 +27,7 @@
     "jotai-immer": "^0.4.1",
     "jotai-optics": "^0.4.0",
     "optics-ts": "^2.4.1",
+    "p5": "^2.0.4",
     "prism-react-renderer": "^2.4.1",
     "prismjs": "^1.30.0",
     "react": "^18.3.1",
