@@ -52,7 +52,10 @@ export default defineConfig({
         nodejsDeepDive: path.resolve(__dirname, 'projects/nodejs-deep-dive/index.html'),
         performanceLab: path.resolve(__dirname, 'projects/performance-lab/index.html'),
         serviceWorkersPwas: path.resolve(__dirname, 'projects/service-workers-pwas/index.html'),
-        microFrontends: path.resolve(__dirname, 'projects/micro-frontends/index.html')
+        microFrontends: path.resolve(__dirname, 'projects/micro-frontends/index.html'),
+        cssHoudini: path.resolve(__dirname, 'projects/css-houdini/index.html'),
+        advancedAnimations: path.resolve(__dirname, 'projects/advanced-animations/index.html'),
+        rayMarching: path.resolve(__dirname, 'projects/ray-marching/index.html')
       }
     }
   },
@@ -79,7 +82,10 @@ export default defineConfig({
       '/nodejs-deep-dive/src': path.resolve(__dirname, 'projects/nodejs-deep-dive/src'),
       '/performance-lab/src': path.resolve(__dirname, 'projects/performance-lab/src'),
       '/service-workers-pwas/src': path.resolve(__dirname, 'projects/service-workers-pwas/src'),
-      '/micro-frontends/src': path.resolve(__dirname, 'projects/micro-frontends/src')
+      '/micro-frontends/src': path.resolve(__dirname, 'projects/micro-frontends/src'),
+      '/css-houdini/src': path.resolve(__dirname, 'projects/css-houdini/src'),
+      '/advanced-animations/src': path.resolve(__dirname, 'projects/advanced-animations/src'),
+      '/ray-marching/src': path.resolve(__dirname, 'projects/ray-marching/src')
     }
   },
   optimizeDeps: {
