@@ -29,6 +29,7 @@ const ShaderCanvas: React.FC<ShaderCanvasProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
   const startTimeRef = useRef<number>(Date.now())
+  const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -110,7 +111,7 @@ const ShaderCanvas: React.FC<ShaderCanvasProps> = ({
 
       const mouseUniform = gl.getUniformLocation(program, 'u_mouse')
       if (mouseUniform) {
-        gl.uniform2f(mouseUniform, 0, 0) // TODO: Track mouse position
+        gl.uniform2f(mouseUniform, mouseRef.current.x, mouseRef.current.y)
       }
 
       // Apply custom uniforms
@@ -138,9 +139,27 @@ const ShaderCanvas: React.FC<ShaderCanvasProps> = ({
       }
     }
 
+    // Mouse tracking
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      mouseRef.current = {
+        x: ((event.clientX - rect.left) / rect.width) * 2 - 1,
+        y: -((event.clientY - rect.top) / rect.height) * 2 + 1
+      }
+    }
+
+    const handleMouseLeave = () => {
+      mouseRef.current = { x: 0, y: 0 }
+    }
+
+    canvas.addEventListener('mousemove', handleMouseMove)
+    canvas.addEventListener('mouseleave', handleMouseLeave)
+
     render()
 
     return () => {
+      canvas.removeEventListener('mousemove', handleMouseMove)
+      canvas.removeEventListener('mouseleave', handleMouseLeave)
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }

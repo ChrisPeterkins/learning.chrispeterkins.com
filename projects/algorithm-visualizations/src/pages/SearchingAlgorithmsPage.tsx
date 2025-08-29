@@ -8,6 +8,155 @@ const SearchingAlgorithmsPage: React.FC = () => {
   const [algorithm, setAlgorithm] = useState<SearchingAlgorithm>('binary');
   const [isRunning, setIsRunning] = useState(false);
   const [currentStep, setCurrentStep] = useState<string>('');
+  const [currentIndex, setCurrentIndex] = useState<number>(-1);
+  const [foundIndex, setFoundIndex] = useState<number>(-1);
+  const [comparisons, setComparisons] = useState<number>(0);
+
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+  const linearSearch = useCallback(async () => {
+    setIsRunning(true);
+    setFoundIndex(-1);
+    setComparisons(0);
+    let comps = 0;
+
+    for (let i = 0; i < array.length; i++) {
+      setCurrentIndex(i);
+      comps++;
+      setComparisons(comps);
+      setCurrentStep(`Checking index ${i}: ${array[i]} ${array[i] === target ? '=' : '≠'} ${target}`);
+      
+      await delay(500);
+      
+      if (array[i] === target) {
+        setFoundIndex(i);
+        setCurrentStep(`Found ${target} at index ${i} after ${comps} comparisons!`);
+        break;
+      }
+    }
+    
+    if (foundIndex === -1 && array[currentIndex] !== target) {
+      setCurrentStep(`${target} not found in array after ${comps} comparisons.`);
+    }
+    
+    setCurrentIndex(-1);
+    setIsRunning(false);
+  }, [array, target, currentIndex, foundIndex]);
+
+  const binarySearch = useCallback(async () => {
+    setIsRunning(true);
+    setFoundIndex(-1);
+    setComparisons(0);
+    let comps = 0;
+    let left = 0;
+    let right = array.length - 1;
+
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
+      setCurrentIndex(mid);
+      comps++;
+      setComparisons(comps);
+      setCurrentStep(`Checking middle index ${mid}: ${array[mid]} ${array[mid] === target ? '=' : array[mid] < target ? '<' : '>'} ${target}`);
+      
+      await delay(700);
+      
+      if (array[mid] === target) {
+        setFoundIndex(mid);
+        setCurrentStep(`Found ${target} at index ${mid} after ${comps} comparisons!`);
+        break;
+      } else if (array[mid] < target) {
+        left = mid + 1;
+        setCurrentStep(`${array[mid]} < ${target}, searching right half`);
+      } else {
+        right = mid - 1;
+        setCurrentStep(`${array[mid]} > ${target}, searching left half`);
+      }
+      await delay(300);
+    }
+    
+    if (left > right) {
+      setCurrentStep(`${target} not found in array after ${comps} comparisons.`);
+    }
+    
+    setCurrentIndex(-1);
+    setIsRunning(false);
+  }, [array, target]);
+
+  const jumpSearch = useCallback(async () => {
+    setIsRunning(true);
+    setFoundIndex(-1);
+    setComparisons(0);
+    let comps = 0;
+    const jumpSize = Math.floor(Math.sqrt(array.length));
+    let prev = 0;
+
+    // Jump to find the block
+    while (array[Math.min(jumpSize, array.length) - 1] < target) {
+      setCurrentIndex(Math.min(jumpSize, array.length) - 1);
+      comps++;
+      setComparisons(comps);
+      setCurrentStep(`Jumping to index ${Math.min(jumpSize, array.length) - 1}: ${array[Math.min(jumpSize, array.length) - 1]} < ${target}`);
+      
+      await delay(600);
+      
+      prev = jumpSize;
+      jumpSize += Math.floor(Math.sqrt(array.length));
+      if (prev >= array.length) {
+        setCurrentStep(`${target} not found in array after ${comps} comparisons.`);
+        setCurrentIndex(-1);
+        setIsRunning(false);
+        return;
+      }
+    }
+
+    // Linear search in the identified block
+    setCurrentStep(`Linear search from index ${prev}`);
+    await delay(400);
+    
+    while (array[prev] < target) {
+      setCurrentIndex(prev);
+      comps++;
+      setComparisons(comps);
+      setCurrentStep(`Checking index ${prev}: ${array[prev]} ${array[prev] === target ? '=' : '<'} ${target}`);
+      
+      await delay(500);
+      
+      prev++;
+      if (prev === Math.min(jumpSize, array.length)) {
+        setCurrentStep(`${target} not found in array after ${comps} comparisons.`);
+        setCurrentIndex(-1);
+        setIsRunning(false);
+        return;
+      }
+    }
+
+    if (array[prev] === target) {
+      setFoundIndex(prev);
+      setCurrentStep(`Found ${target} at index ${prev} after ${comps} comparisons!`);
+    } else {
+      setCurrentStep(`${target} not found in array after ${comps} comparisons.`);
+    }
+    
+    setCurrentIndex(-1);
+    setIsRunning(false);
+  }, [array, target]);
+
+  const startSearch = useCallback(() => {
+    setFoundIndex(-1);
+    setComparisons(0);
+    
+    switch(algorithm) {
+      case 'linear':
+        linearSearch();
+        break;
+      case 'binary':
+        binarySearch();
+        break;
+      case 'jump':
+        jumpSearch();
+        break;
+    }
+  }, [algorithm, linearSearch, binarySearch, jumpSearch]);
 
   const algorithmInfo = {
     linear: {
@@ -90,31 +239,65 @@ const SearchingAlgorithmsPage: React.FC = () => {
 
           <button
             className="action-button"
-            onClick={() => setCurrentStep('Search functionality coming soon!')}
+            onClick={startSearch}
             disabled={isRunning}
           >
-            Start Search
+            {isRunning ? 'Searching...' : 'Start Search'}
           </button>
+
+          {comparisons > 0 && (
+            <div style={{ marginTop: '1rem', color: 'var(--accent-green-bright)' }}>
+              Comparisons: {comparisons}
+            </div>
+          )}
         </div>
 
         <div style={{
           background: 'var(--code-bg)',
           padding: '2rem',
           border: '1px solid var(--code-border)',
-          borderRadius: '8px',
-          textAlign: 'center'
+          borderRadius: '8px'
         }}>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-            Array: [{array.join(', ')}]
-          </p>
-          <p style={{ color: 'var(--accent-green-bright)' }}>
-            Target: {target}
-          </p>
-          {currentStep && (
-            <p style={{ color: 'var(--text-primary)', marginTop: '1rem' }}>
-              {currentStep}
+          <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            {array.map((value, index) => (
+              <div
+                key={index}
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '2px solid',
+                  borderColor: foundIndex === index ? 'var(--accent-green-bright)' : 
+                               currentIndex === index ? 'var(--accent-yellow)' : 
+                               'var(--code-border)',
+                  backgroundColor: foundIndex === index ? 'rgba(34, 197, 94, 0.1)' :
+                                  currentIndex === index ? 'rgba(250, 204, 21, 0.1)' :
+                                  'transparent',
+                  borderRadius: '4px',
+                  color: foundIndex === index ? 'var(--accent-green-bright)' :
+                        currentIndex === index ? 'var(--accent-yellow)' :
+                        'var(--text-primary)',
+                  fontWeight: foundIndex === index || currentIndex === index ? 'bold' : 'normal',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {value}
+              </div>
+            ))}
+          </div>
+          
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ color: 'var(--accent-green-bright)', marginBottom: '1rem' }}>
+              Target: {target}
             </p>
-          )}
+            {currentStep && (
+              <p style={{ color: 'var(--text-primary)', marginTop: '1rem' }}>
+                {currentStep}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
