@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Learning Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0f0d;
+            --bg-secondary: rgba(15, 25, 20, 0.6);
+            --bg-hover: rgba(15, 25, 20, 0.8);
+            --text-primary: #f0f4f2;
+            --text-secondary: #a8bdb2;
+            --text-muted: #8fa99b;
+            --accent-green: #1a5d3a;
+            --accent-green-bright: #4ade80;
+            --border-primary: rgba(26, 93, 58, 0.2);
+            --border-hover: rgba(26, 93, 58, 0.5);
+            --shadow-green: rgba(0, 66, 37, 0.3);
+            --code-bg: rgba(15, 25, 20, 0.9);
+            --code-border: rgba(143, 169, 155, 0.2);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 66, 37, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(26, 93, 58, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 66, 37, 0.2) 0%, transparent 50%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-shadow: 0 2px 20px var(--shadow-green);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-green-bright);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        .roadmap {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .roadmap h2 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .phase {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-green-bright);
+            border: 1px solid var(--border-primary);
+            transition: border-color 0.3s ease;
+        }
+        
+        .phase:hover {
+            border-color: var(--border-hover);
+        }
+        
+        .phase h3 {
+            color: var(--accent-green-bright);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .phase ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .phase li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .example-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-green-bright), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .example-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .example-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-green);
+        }
+        
+        .example-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .example-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .example-card .level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .example-card .level.beginner { 
+            background: rgba(26, 93, 58, 0.2); 
+            color: var(--accent-green-bright);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+        
+        .example-card .level.intermediate { 
+            background: rgba(251, 191, 36, 0.1); 
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+        
+        .example-card .level.advanced { 
+            background: rgba(239, 68, 68, 0.1); 
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .resources {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .resources h2 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .resources ul {
+            list-style: none;
+        }
+        
+        .resources li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .resources li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green-bright);
+        }
+        
+        .resources a {
+            color: var(--accent-green-bright);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .resources a:hover {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Learning Hub</a>
+        
+        <h1>Three.js Journey</h1>
+        <p class="subtitle">Master 3D graphics in the browser</p>
+        
+        <div class="roadmap">
+            <h2>📚 Learning Roadmap</h2>
+            
+            <div class="phase">
+                <h3>Phase 1: Foundation (Week 1-2)</h3>
+                <ul>
+                    <li>Understanding 3D coordinate systems</li>
+                    <li>Scene, Camera, Renderer basics</li>
+                    <li>Basic geometries (Box, Sphere, Plane)</li>
+                    <li>Basic materials and colors</li>
+                    <li>Simple animations with requestAnimationFrame</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 2: Visual Enhancement (Week 3-4)</h3>
+                <ul>
+                    <li>Lighting types (Ambient, Directional, Point, Spot)</li>
+                    <li>Shadows and reflections</li>
+                    <li>Textures and UV mapping</li>
+                    <li>Loading 3D models (GLTF/GLB)</li>
+                    <li>Post-processing effects</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 3: Interactivity (Week 5-6)</h3>
+                <ul>
+                    <li>Camera controls (Orbit, Fly, First-person)</li>
+                    <li>Raycasting for mouse interaction</li>
+                    <li>Object selection and manipulation</li>
+                    <li>Keyboard and gamepad input</li>
+                    <li>GUI controls with dat.gui</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 4: Game Development (Week 7-8)</h3>
+                <ul>
+                    <li>Physics integration (Cannon.js)</li>
+                    <li>Collision detection</li>
+                    <li>Particle systems</li>
+                    <li>Audio integration</li>
+                    <li>Performance optimization</li>
+                    <li>Game loop and state management</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 class="section-title">🚀 Interactive Examples</h2>
+        
+        <div class="examples-grid">
+            <a href="/examples/01-basics/index.html" class="example-card">
+                <span class="level beginner">Beginner</span>
+                <h3>01. Basics</h3>
+                <p>Learn about scenes, cameras, renderers, and creating your first 3D object.</p>
+            </a>
+            
+            <a href="/examples/02-geometries/index.html" class="example-card">
+                <span class="level beginner">Beginner</span>
+                <h3>02. Geometries</h3>
+                <p>Explore different geometry types and how to create custom shapes.</p>
+            </a>
+            
+            <a href="/examples/03-materials/index.html" class="example-card">
+                <span class="level beginner">Beginner</span>
+                <h3>03. Materials</h3>
+                <p>Understand different material types and their properties.</p>
+            </a>
+            
+            <a href="/examples/04-lighting/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>04. Lighting</h3>
+                <p>Master different light types and create realistic shadows.</p>
+            </a>
+            
+            <a href="/examples/05-animation/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>05. Animation</h3>
+                <p>Create smooth animations and learn about the animation loop.</p>
+            </a>
+            
+            <a href="/examples/06-controls/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>06. Controls</h3>
+                <p>Implement camera controls and user input handling.</p>
+            </a>
+            
+            <a href="/examples/07-textures/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>07. Textures</h3>
+                <p>Apply textures and understand UV mapping.</p>
+            </a>
+            
+            <a href="/examples/08-models/index.html" class="example-card">
+                <span class="level intermediate">Intermediate</span>
+                <h3>08. 3D Models</h3>
+                <p>Load and manipulate external 3D models.</p>
+            </a>
+            
+            <a href="/examples/09-interaction/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>09. Interaction</h3>
+                <p>Implement raycasting and object selection.</p>
+            </a>
+            
+            <a href="/examples/10-physics/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>10. Physics</h3>
+                <p>Integrate physics engine for realistic motion.</p>
+            </a>
+            
+            <a href="/examples/11-shaders/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>11. Shaders</h3>
+                <p>Write custom shaders for unique visual effects.</p>
+            </a>
+            
+            <a href="/examples/12-game-concepts/index.html" class="example-card">
+                <span class="level advanced">Advanced</span>
+                <h3>12. Game Concepts</h3>
+                <p>Build a mini-game with all concepts combined.</p>
+            </a>
+        </div>
+        
+        <div class="resources">
+            <h2>📖 Helpful Resources</h2>
+            <ul>
+                <li><a href="https://threejs.org/docs/" target="_blank">Official Three.js Documentation</a></li>
+                <li><a href="https://threejs.org/examples/" target="_blank">Three.js Examples Gallery</a></li>
+                <li><a href="https://discoverthreejs.com/" target="_blank">Discover Three.js Book</a></li>
+                <li><a href="https://github.com/mrdoob/three.js/" target="_blank">Three.js GitHub Repository</a></li>
+                <li><a href="https://threejs.org/editor/" target="_blank">Three.js Editor</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

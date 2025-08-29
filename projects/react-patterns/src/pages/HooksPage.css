@@ -1,0 +1,97 @@
+.hooks-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hooks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.hook-card {
+  background: var(--bg-secondary);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-primary);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.hook-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.hook-card:hover::before {
+  transform: translateX(100%);
+}
+
+.hook-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 10px 40px rgba(0, 66, 37, 0.2);
+}
+
+.hook-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.hook-card h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
+.difficulty {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  border: 1px solid;
+}
+
+.difficulty.beginner {
+  color: var(--accent-green-bright);
+  border-color: var(--accent-green);
+  background: rgba(26, 93, 58, 0.1);
+}
+
+.difficulty.intermediate {
+  color: #f0c674;
+  border-color: #735c3a;
+  background: rgba(115, 92, 58, 0.1);
+}
+
+.difficulty.advanced {
+  color: #d08770;
+  border-color: #8b5a3c;
+  background: rgba(139, 90, 60, 0.1);
+}
+
+.hook-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.learn-more {
+  color: var(--accent-green-bright);
+  font-size: 0.9rem;
+  font-weight: 500;
+}

@@ -1,0 +1,68 @@
+.hook-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content-section {
+  margin: 2rem 0;
+}
+
+.content-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.content-section p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.content-section code {
+  background: rgba(26, 93, 58, 0.1);
+  padding: 0.2rem 0.4rem;
+  color: var(--accent-green-bright);
+  font-size: 0.9em;
+}
+
+.code-block {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.examples-section {
+  margin: 3rem 0;
+}
+
+.examples-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.best-practices-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.best-practices-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.best-practices-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green-bright);
+  font-weight: bold;
+}

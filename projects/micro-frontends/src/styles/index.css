@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0f0d;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 66, 37, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(26, 93, 58, 0.2) 0%, transparent 50%);
+  min-height: 100vh;
+  color: #f0f4f2;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.demo-container {
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.demo-container h3 {
+  color: #4ade80;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.micro-app {
+  background: rgba(0, 66, 37, 0.1);
+  border: 1px solid rgba(26, 93, 58, 0.3);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.micro-app:hover {
+  background: rgba(0, 66, 37, 0.2);
+  border-color: #1a5d3a;
+}
+
+.micro-app h4 {
+  color: #f0f4f2;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.micro-app p {
+  color: #a8bdb2;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.app-status {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+
+.status-loaded {
+  border-color: #1a5d3a;
+  color: #4ade80;
+  background: rgba(26, 93, 58, 0.1);
+}
+
+.status-loading {
+  border-color: #735c3a;
+  color: #f0c674;
+  background: rgba(115, 92, 58, 0.1);
+}
+
+.status-error {
+  border-color: #5c3a3a;
+  color: #f07474;
+  background: rgba(92, 58, 58, 0.1);
+}
+
+.code-viewer {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.code-viewer pre {
+  margin: 0;
+  color: #a8bdb2;
+}
+
+.architecture-diagram {
+  background: rgba(15, 25, 20, 0.4);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.diagram-box {
+  display: inline-block;
+  background: rgba(26, 93, 58, 0.1);
+  border: 2px solid #1a5d3a;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  color: #4ade80;
+  font-weight: 500;
+}
+
+.diagram-arrow {
+  color: #8fa99b;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin: 1rem 0;
+  color: #a8bdb2;
+}
+
+.feature-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.tab-container {
+  margin: 2rem 0;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(26, 93, 58, 0.2);
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  color: #8fa99b;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #a8bdb2;
+}
+
+.tab-button.active {
+  color: #4ade80;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #4ade80;
+}
+
+.tab-content {
+  padding: 1.5rem 0;
+}
+
+.deployment-card {
+  background: rgba(15, 25, 20, 0.6);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.deployment-card:hover {
+  background: rgba(15, 25, 20, 0.8);
+  border-color: rgba(26, 93, 58, 0.4);
+}
+
+.deployment-card h4 {
+  color: #f0f4f2;
+  margin-bottom: 1rem;
+}
+
+.deployment-card p {
+  color: #a8bdb2;
+  margin-bottom: 1rem;
+}
+
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.pros, .cons {
+  padding: 1rem;
+  border: 1px solid rgba(26, 93, 58, 0.2);
+}
+
+.pros {
+  background: rgba(26, 93, 58, 0.05);
+}
+
+.cons {
+  background: rgba(92, 58, 58, 0.05);
+}
+
+.pros h5 {
+  color: #4ade80;
+  margin-bottom: 0.5rem;
+}
+
+.cons h5 {
+  color: #f07474;
+  margin-bottom: 0.5rem;
+}
+
+.pros ul, .cons ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pros li, .cons li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pros-cons {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .diagram-box {
+    display: block;
+    margin: 0.5rem auto;
+  }
+  
+  .diagram-arrow {
+    display: block;
+    transform: rotate(90deg);
+    margin: 1rem auto;
+  }
+}

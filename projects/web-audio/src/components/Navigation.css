@@ -1,0 +1,70 @@
+.navigation {
+  width: 280px;
+  background: rgba(15, 25, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.nav-header {
+  margin-bottom: 2rem;
+}
+
+.nav-header h1 {
+  color: #f0f4f2;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.back-link {
+  color: #8fa99b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #4ade80;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-links a {
+  color: #a8bdb2;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  background: rgba(26, 93, 58, 0.1);
+  border-color: rgba(26, 93, 58, 0.3);
+  color: #f0f4f2;
+}
+
+.nav-links a.active {
+  background: rgba(26, 93, 58, 0.2);
+  border-color: #1a5d3a;
+  color: #4ade80;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(26, 93, 58, 0.2);
+  }
+}

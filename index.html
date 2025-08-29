@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js Learning Hub</title>
+    <title>Learning Hub - Chris Peterkins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,10 +15,15 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #004225 0%, #002615 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0f0d;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 66, 37, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(26, 93, 58, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 66, 37, 0.2) 0%, transparent 50%);
             min-height: 100vh;
             padding: 2rem;
+            color: #f0f4f2;
         }
         
         .container {
@@ -24,259 +32,476 @@
         }
         
         h1 {
-            color: #e8f5e9;
+            font-family: 'Playfair Display', serif;
+            color: #f0f4f2;
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-        }
-        
-        .roadmap {
-            background: #1a1a1a;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .roadmap h2 {
-            color: #e8f5e9;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-        
-        .phase {
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: #2a2a2a;
-            border-radius: 8px;
-            border-left: 4px solid #00a550;
-        }
-        
-        .phase h3 {
-            color: #00a550;
             margin-bottom: 0.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 20px rgba(0, 66, 37, 0.3);
         }
         
-        .phase ul {
-            margin-left: 1.5rem;
-            color: #b0b0b0;
+        .subtitle {
+            color: #8fa99b;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
         
-        .phase li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .examples-grid {
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
         
-        .example-card {
-            background: #1a1a1a;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .project-card {
+            background: rgba(15, 25, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(26, 93, 58, 0.2);
+            border-radius: 0;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
             text-decoration: none;
-            color: #e8f5e9;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
         }
         
-        .example-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,166,80,0.2);
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #1a5d3a, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
         
-        .example-card h3 {
-            color: #00a550;
-            margin-bottom: 0.5rem;
+        .project-card:hover::before {
+            transform: translateX(100%);
         }
         
-        .example-card .level {
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            background: #e3f2fd;
-            color: #1976d2;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
+        .project-card:hover {
+            transform: translateY(-4px);
+            background: rgba(15, 25, 20, 0.8);
+            border-color: rgba(26, 93, 58, 0.5);
+            box-shadow: 
+                0 10px 40px rgba(0, 66, 37, 0.2),
+                0 0 60px rgba(26, 93, 58, 0.1);
         }
         
-        .example-card .level.beginner { background: #004225; color: #4caf50; }
-        .example-card .level.intermediate { background: #3a2f00; color: #ffa726; }
-        .example-card .level.advanced { background: #4a0e23; color: #e91e63; }
-        
-        .resources {
-            background: #1a1a1a;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .resources h2 {
-            color: #e8f5e9;
+        .project-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #f0f4f2;
             margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
         
-        .resources ul {
-            list-style: none;
+        .project-card p {
+            color: #a8bdb2;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            font-size: 0.95rem;
         }
         
-        .resources li {
+        .project-status {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        .status-active {
+            border-color: #1a5d3a;
+            color: #4ade80;
+            background: rgba(26, 93, 58, 0.1);
+        }
+        
+        .status-coming-soon {
+            border-color: #735c3a;
+            color: #f0c674;
+            background: rgba(115, 92, 58, 0.1);
+        }
+        
+        .tech-stack {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(143, 169, 155, 0.1);
+        }
+        
+        .tech-stack span {
+            display: inline-block;
+            background: transparent;
+            color: #8fa99b;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid rgba(143, 169, 155, 0.2);
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
         }
         
-        .resources a {
-            color: #00a550;
+        .project-card:hover .tech-stack span {
+            border-color: rgba(143, 169, 155, 0.4);
+            color: #a8bdb2;
+        }
+        
+        footer {
+            text-align: center;
+            color: #8fa99b;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(143, 169, 155, 0.1);
+        }
+        
+        footer a {
+            color: #a8bdb2;
             text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 400;
         }
         
-        .resources a:hover {
-            text-decoration: underline;
+        footer a:hover {
+            color: #f0f4f2;
+        }
+        
+        .footer-subtitle {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #6b8577;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Disabled card styles */
+        .project-card.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .project-card.disabled:hover {
+            transform: none;
+            background: rgba(15, 25, 20, 0.6);
+            border-color: rgba(26, 93, 58, 0.2);
+            box-shadow: none;
+        }
+        
+        .project-card.disabled:hover::before {
+            transform: translateX(-100%);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎮 Three.js Learning Hub</h1>
+        <h1>Learning Hub</h1>
+        <p class="subtitle">Interactive Explorations in Web Development</p>
         
-        <div class="roadmap">
-            <h2>📚 Learning Roadmap</h2>
+        <div class="projects-grid">
+            <a href="/projects/three-js/" class="project-card">
+                <h2>Three.js Journey</h2>
+                <p>Master 3D graphics on the web with interactive examples and progressive learning exercises.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Three.js</span>
+                    <span>WebGL</span>
+                    <span>JavaScript</span>
+                    <span>Vite</span>
+                </div>
+            </a>
             
-            <div class="phase">
-                <h3>Phase 1: Foundation (Week 1-2)</h3>
-                <ul>
-                    <li>Understanding 3D coordinate systems</li>
-                    <li>Scene, Camera, Renderer basics</li>
-                    <li>Basic geometries (Box, Sphere, Plane)</li>
-                    <li>Basic materials and colors</li>
-                    <li>Simple animations with requestAnimationFrame</li>
-                </ul>
+            <a href="/projects/react-patterns/" class="project-card">
+                <h2>React Patterns</h2>
+                <p>Explore advanced React patterns, hooks, and best practices through practical examples.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Hooks</span>
+                </div>
+            </a>
+            
+            <a href="/projects/webgl-shaders/" class="project-card">
+                <h2>WebGL Shaders</h2>
+                <p>Deep dive into GLSL shaders with interactive shader playground and visual effects.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>WebGL</span>
+                    <span>GLSL</span>
+                    <span>Canvas</span>
+                </div>
+            </a>
+            
+            <a href="/projects/web-audio/" class="project-card">
+                <h2>Web Audio API</h2>
+                <p>Create synthesizers, visualizers, and audio effects with the Web Audio API.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Web Audio</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Canvas</span>
+                </div>
+            </a>
+            
+            <a href="/projects/canvas-animations/" class="project-card">
+                <h2>Canvas Animations</h2>
+                <p>Master HTML5 Canvas API with particle systems, physics simulations, and creative coding.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Canvas API</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Animation</span>
+                </div>
+            </a>
+            
+            <a href="/projects/typescript-patterns/" class="project-card">
+                <h2>TypeScript Patterns</h2>
+                <p>Advanced TypeScript patterns, generics, type gymnastics, and real-world applications.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>TypeScript</span>
+                    <span>Type Theory</span>
+                    <span>Patterns</span>
+                </div>
+            </a>
+            
+            <a href="/projects/webassembly/" class="project-card">
+                <h2>WebAssembly</h2>
+                <p>High-performance web applications with WebAssembly, Rust, and cross-language integration.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>WebAssembly</span>
+                    <span>Rust</span>
+                    <span>Performance</span>
+                </div>
+            </a>
+            
+            <a href="/projects/nodejs-deep-dive/" class="project-card">
+                <h2>Node.js Deep Dive</h2>
+                <p>Event loop, streams, workers, and building scalable backend applications with Node.js.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Node.js</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Performance</span>
+                </div>
+            </a>
+            
+            <a href="/projects/browser-devtools/" class="project-card">
+                <h2>Browser DevTools</h2>
+                <p>Master debugging, performance profiling, and browser APIs for advanced web development.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>DevTools</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Performance</span>
+                </div>
+            </a>
+            
+            <a href="/projects/css-animations/" class="project-card">
+                <h2>CSS Grid & Animations</h2>
+                <p>Complex layouts with CSS Grid, Flexbox, and advanced CSS animations and transitions.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>CSS Grid</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Animations</span>
+                </div>
+            </a>
+            
+            <a href="/projects/graphql-apis/" class="project-card">
+                <h2>GraphQL & APIs</h2>
+                <p>Design and implement GraphQL APIs, schemas, resolvers, and real-time subscriptions.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>GraphQL</span>
+                    <span>Apollo</span>
+                    <span>REST</span>
+                </div>
+            </a>
+            
+            <a href="/projects/testing-strategies/" class="project-card">
+                <h2>Testing Strategies</h2>
+                <p>Unit testing, integration testing, E2E testing, and test-driven development practices.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Jest</span>
+                    <span>Testing Library</span>
+                    <span>Cypress</span>
+                </div>
+            </a>
+            
+            <a href="/projects/data-visualization/" class="project-card">
+                <h2>Data Visualization</h2>
+                <p>Interactive charts, real-time data streams, and custom visualizations with D3.js.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>D3.js</span>
+                    <span>SVG</span>
+                    <span>Canvas</span>
+                    <span>React</span>
+                </div>
+            </a>
+            
+            <a href="/projects/game-development/" class="project-card">
+                <h2>Game Development</h2>
+                <p>Collision detection, physics engines, entity systems, and game loop fundamentals.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Canvas</span>
+                    <span>WebGL</span>
+                    <span>Physics</span>
+                    <span>TypeScript</span>
+                </div>
+            </a>
+            
+            <a href="/projects/webrtc-deep-dive/" class="project-card">
+                <h2>WebRTC Deep Dive</h2>
+                <p>Peer-to-peer connections, video chat, screen sharing, and real-time communication.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>WebRTC</span>
+                    <span>MediaStream</span>
+                    <span>P2P</span>
+                </div>
+            </a>
+            
+            <a href="/projects/service-workers-pwas/" class="project-card">
+                <h2>Service Workers & PWAs</h2>
+                <p>Offline functionality, background sync, push notifications, and progressive web apps.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Service Workers</span>
+                    <span>PWA</span>
+                    <span>Cache API</span>
+                </div>
+            </a>
+            
+            <a href="/projects/performance-lab/" class="project-card">
+                <h2>Performance Lab</h2>
+                <p>Bundle optimization, lazy loading, virtualization, and frontend performance metrics.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Webpack</span>
+                    <span>Performance API</span>
+                    <span>Optimization</span>
+                </div>
+            </a>
+            
+            <a href="/projects/state-management/" class="project-card">
+                <h2>State Management</h2>
+                <p>Modern state management patterns with Zustand, Jotai, Valtio, and atomic state.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Zustand</span>
+                    <span>Jotai</span>
+                    <span>Valtio</span>
+                    <span>React</span>
+                </div>
+            </a>
+            
+            <div class="project-card disabled">
+                <h2>Micro-Frontends</h2>
+                <p>Module federation, single-spa, component sharing, and deployment strategies.</p>
+                <span class="project-status status-coming-soon">Coming Soon</span>
+                <div class="tech-stack">
+                    <span>Module Federation</span>
+                    <span>single-spa</span>
+                    <span>Webpack</span>
+                </div>
             </div>
             
-            <div class="phase">
-                <h3>Phase 2: Visual Enhancement (Week 3-4)</h3>
-                <ul>
-                    <li>Lighting types (Ambient, Directional, Point, Spot)</li>
-                    <li>Shadows and reflections</li>
-                    <li>Textures and UV mapping</li>
-                    <li>Loading 3D models (GLTF/GLB)</li>
-                    <li>Post-processing effects</li>
-                </ul>
+            <div class="project-card disabled">
+                <h2>CSS Houdini</h2>
+                <p>Custom properties, paint API, layout worklets, and extending CSS capabilities.</p>
+                <span class="project-status status-coming-soon">Coming Soon</span>
+                <div class="tech-stack">
+                    <span>CSS Houdini</span>
+                    <span>Paint API</span>
+                    <span>Worklets</span>
+                </div>
             </div>
             
-            <div class="phase">
-                <h3>Phase 3: Interactivity (Week 5-6)</h3>
-                <ul>
-                    <li>Camera controls (Orbit, Fly, First-person)</li>
-                    <li>Raycasting for mouse interaction</li>
-                    <li>Object selection and manipulation</li>
-                    <li>Keyboard and gamepad input</li>
-                    <li>GUI controls with dat.gui</li>
-                </ul>
+            <div class="project-card disabled">
+                <h2>Advanced Animations</h2>
+                <p>GSAP, Framer Motion, scroll-triggered animations, and SVG morphing techniques.</p>
+                <span class="project-status status-coming-soon">Coming Soon</span>
+                <div class="tech-stack">
+                    <span>GSAP</span>
+                    <span>Framer Motion</span>
+                    <span>SVG</span>
+                </div>
             </div>
             
-            <div class="phase">
-                <h3>Phase 4: Game Development (Week 7-8)</h3>
-                <ul>
-                    <li>Physics integration (Cannon.js)</li>
-                    <li>Collision detection</li>
-                    <li>Particle systems</li>
-                    <li>Audio integration</li>
-                    <li>Performance optimization</li>
-                    <li>Game loop and state management</li>
-                </ul>
+            <a href="/projects/algorithm-visualizations/" class="project-card">
+                <h2>Algorithm Visualizations</h2>
+                <p>Interactive visualizations of sorting, searching, and graph algorithms.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>Canvas</span>
+                    <span>Algorithms</span>
+                    <span>React</span>
+                </div>
+            </a>
+            
+            <a href="/projects/procedural-generation/" class="project-card">
+                <h2>Procedural Generation</h2>
+                <p>Terrain generation, L-systems, noise functions, and procedural content creation.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>WebGL</span>
+                    <span>Noise</span>
+                    <span>Algorithms</span>
+                </div>
+            </a>
+            
+            <div class="project-card disabled">
+                <h2>Ray Marching & SDFs</h2>
+                <p>Signed distance fields, soft shadows, volumetric rendering, and fractal landscapes.</p>
+                <span class="project-status status-coming-soon">Coming Soon</span>
+                <div class="tech-stack">
+                    <span>GLSL</span>
+                    <span>WebGL</span>
+                    <span>Math</span>
+                </div>
             </div>
+            
+            <a href="/projects/creative-coding/" class="project-card">
+                <h2>Creative Coding</h2>
+                <p>P5.js sketches, generative art, audio-reactive visuals, and algorithmic patterns.</p>
+                <span class="project-status status-active">Active</span>
+                <div class="tech-stack">
+                    <span>P5.js</span>
+                    <span>Canvas</span>
+                    <span>Generative</span>
+                </div>
+            </a>
         </div>
         
-        <h2 style="color: #e8f5e9; margin-bottom: 2rem;">🚀 Interactive Examples</h2>
-        
-        <div class="examples-grid">
-            <a href="examples/01-basics/index.html" class="example-card">
-                <span class="level beginner">Beginner</span>
-                <h3>01. Basics</h3>
-                <p>Learn about scenes, cameras, renderers, and creating your first 3D object.</p>
-            </a>
-            
-            <a href="examples/02-geometries/index.html" class="example-card">
-                <span class="level beginner">Beginner</span>
-                <h3>02. Geometries</h3>
-                <p>Explore different geometry types and how to create custom shapes.</p>
-            </a>
-            
-            <a href="examples/03-materials/index.html" class="example-card">
-                <span class="level beginner">Beginner</span>
-                <h3>03. Materials</h3>
-                <p>Understand different material types and their properties.</p>
-            </a>
-            
-            <a href="examples/04-lighting/index.html" class="example-card">
-                <span class="level intermediate">Intermediate</span>
-                <h3>04. Lighting</h3>
-                <p>Master different light types and create realistic shadows.</p>
-            </a>
-            
-            <a href="examples/05-animation/index.html" class="example-card">
-                <span class="level intermediate">Intermediate</span>
-                <h3>05. Animation</h3>
-                <p>Create smooth animations and learn about the animation loop.</p>
-            </a>
-            
-            <a href="examples/06-controls/index.html" class="example-card">
-                <span class="level intermediate">Intermediate</span>
-                <h3>06. Controls</h3>
-                <p>Implement camera controls and user input handling.</p>
-            </a>
-            
-            <a href="examples/07-textures/index.html" class="example-card">
-                <span class="level intermediate">Intermediate</span>
-                <h3>07. Textures</h3>
-                <p>Apply textures and understand UV mapping.</p>
-            </a>
-            
-            <a href="examples/08-models/index.html" class="example-card">
-                <span class="level intermediate">Intermediate</span>
-                <h3>08. 3D Models</h3>
-                <p>Load and manipulate external 3D models.</p>
-            </a>
-            
-            <a href="examples/09-interaction/index.html" class="example-card">
-                <span class="level advanced">Advanced</span>
-                <h3>09. Interaction</h3>
-                <p>Implement raycasting and object selection.</p>
-            </a>
-            
-            <a href="examples/10-physics/index.html" class="example-card">
-                <span class="level advanced">Advanced</span>
-                <h3>10. Physics</h3>
-                <p>Integrate physics engine for realistic motion.</p>
-            </a>
-            
-            <a href="examples/11-shaders/index.html" class="example-card">
-                <span class="level advanced">Advanced</span>
-                <h3>11. Shaders</h3>
-                <p>Write custom shaders for unique visual effects.</p>
-            </a>
-            
-            <a href="examples/12-game-concepts/index.html" class="example-card">
-                <span class="level advanced">Advanced</span>
-                <h3>12. Game Concepts</h3>
-                <p>Build a mini-game with all concepts combined.</p>
-            </a>
-        </div>
-        
-        <div class="resources">
-            <h2>📖 Helpful Resources</h2>
-            <ul>
-                <li>📘 <a href="https://threejs.org/docs/" target="_blank">Official Three.js Documentation</a></li>
-                <li>🎓 <a href="https://threejs.org/examples/" target="_blank">Three.js Examples Gallery</a></li>
-                <li>💡 <a href="https://discoverthreejs.com/" target="_blank">Discover Three.js Book</a></li>
-                <li>🎮 <a href="https://github.com/mrdoob/three.js/" target="_blank">Three.js GitHub Repository</a></li>
-                <li>🛠️ <a href="https://threejs.org/editor/" target="_blank">Three.js Editor</a></li>
-            </ul>
-        </div>
+        <footer>
+            <p>Created by <a href="https://chrispeterkins.com">Chris Peterkins</a></p>
+            <p class="footer-subtitle">Continuously updated with new learning materials</p>
+        </footer>
     </div>
 </body>
 </html>

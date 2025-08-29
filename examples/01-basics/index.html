@@ -4,72 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01 - Three.js Basics</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-        }
-        
-        #canvas-container {
-            width: 100vw;
-            height: 100vh;
-        }
-        
-        .info {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: white;
-            background: rgba(0,0,0,0.7);
-            padding: 15px;
-            border-radius: 5px;
-            max-width: 400px;
-        }
-        
-        .info h2 {
-            margin-top: 0;
-            color: #00a550;
-        }
-        
-        .controls {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0,0,0,0.7);
-            padding: 15px;
-            border-radius: 5px;
-        }
-        
-        .controls button {
-            margin-right: 10px;
-            padding: 8px 15px;
-            background: #00a550;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .controls button:hover {
-            background: #007a3d;
-        }
-        
-        .back-link {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            background: rgba(0,0,0,0.7);
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        
-        .back-link:hover {
-            background: rgba(0,0,0,0.9);
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/example-theme.css">
 </head>
 <body>
     <div id="canvas-container"></div>
@@ -87,14 +25,14 @@
     </div>
     
     <div class="controls">
-        <button onclick="changeShape('cube')">Cube</button>
-        <button onclick="changeShape('sphere')">Sphere</button>
-        <button onclick="changeShape('cone')">Cone</button>
-        <button onclick="changeShape('torus')">Torus</button>
-        <button onclick="toggleRotation()">Toggle Rotation</button>
+        <button onclick="changeShape('cube')"><span>Cube</span></button>
+        <button onclick="changeShape('sphere')"><span>Sphere</span></button>
+        <button onclick="changeShape('cone')"><span>Cone</span></button>
+        <button onclick="changeShape('torus')"><span>Torus</span></button>
+        <button onclick="toggleRotation()"><span>Toggle Rotation</span></button>
     </div>
     
-    <a href="../../index.html" class="back-link">← Back to Hub</a>
+    <a href="/projects/three-js/" class="back-link">← Back to Three.js Hub</a>
     
     <script type="module" src="basics.js"></script>
 </body>

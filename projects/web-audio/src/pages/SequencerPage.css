@@ -1,0 +1,267 @@
+.sequencer-page h1 {
+  color: #f0f4f2;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sequencer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.transport {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.play-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: rgba(26, 93, 58, 0.2);
+  border: 1px solid #1a5d3a;
+  color: #4ade80;
+  min-width: 120px;
+}
+
+.play-button:hover {
+  background: rgba(26, 93, 58, 0.3);
+}
+
+.play-button.stop {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: #991b1b;
+  color: #f87171;
+}
+
+.play-button.stop:hover {
+  background: rgba(220, 38, 38, 0.3);
+}
+
+.tempo-control,
+.swing-control,
+.volume-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.tempo-control label,
+.swing-control label,
+.volume-control label {
+  color: #a8bdb2;
+  font-size: 0.9rem;
+}
+
+.tempo-control input,
+.swing-control input,
+.volume-control input {
+  width: 100%;
+  height: 6px;
+  background: rgba(26, 93, 58, 0.2);
+  outline: none;
+  border-radius: 3px;
+}
+
+.tempo-control input::-webkit-slider-thumb,
+.swing-control input::-webkit-slider-thumb,
+.volume-control input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4ade80;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.pattern-controls {
+  display: flex;
+  gap: 1rem;
+  background: rgba(15, 25, 20, 0.4);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 1rem;
+}
+
+.pattern-controls button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(26, 93, 58, 0.1);
+  border: 1px solid rgba(26, 93, 58, 0.3);
+  color: #a8bdb2;
+  transition: all 0.3s ease;
+}
+
+.pattern-controls button:hover {
+  background: rgba(26, 93, 58, 0.2);
+  color: #4ade80;
+  border-color: #1a5d3a;
+}
+
+.sequencer-grid {
+  display: flex;
+  gap: 1rem;
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.track-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  min-width: 100px;
+}
+
+.track-label {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #a8bdb2;
+  font-size: 0.9rem;
+  padding-right: 0.5rem;
+}
+
+.track-label span {
+  flex: 1;
+}
+
+.randomize-btn {
+  background: transparent;
+  border: 1px solid rgba(26, 93, 58, 0.3);
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.randomize-btn:hover {
+  background: rgba(26, 93, 58, 0.2);
+  border-color: #1a5d3a;
+}
+
+.step-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.step-numbers {
+  display: flex;
+  gap: 0.25rem;
+  height: 2rem;
+}
+
+.step-number {
+  width: 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b8577;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.step-number.active {
+  color: #4ade80;
+  background: rgba(26, 93, 58, 0.3);
+  border-radius: 2px;
+}
+
+.track {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.step {
+  width: 32px;
+  height: 32px;
+  background: rgba(26, 93, 58, 0.1);
+  border: 1px solid rgba(26, 93, 58, 0.3);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+.step:hover {
+  background: rgba(26, 93, 58, 0.2);
+  border-color: #1a5d3a;
+}
+
+.step.active {
+  background: #1a5d3a;
+  border-color: #4ade80;
+}
+
+.step.active::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background: #4ade80;
+  top: 20%;
+  left: 20%;
+  border-radius: 2px;
+}
+
+.step.playing {
+  animation: pulse 0.2s ease;
+}
+
+.step.downbeat {
+  border-left: 2px solid rgba(143, 169, 155, 0.3);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.info-panel {
+  background: rgba(15, 25, 20, 0.4);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+}
+
+.info-panel h3 {
+  color: #4ade80;
+  margin-bottom: 1rem;
+}
+
+.info-panel ul {
+  list-style: none;
+}
+
+.info-panel li {
+  color: #a8bdb2;
+  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.info-panel li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+}

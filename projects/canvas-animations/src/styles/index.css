@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0f0d;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 66, 37, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(26, 93, 58, 0.2) 0%, transparent 50%);
+  min-height: 100vh;
+  color: #f0f4f2;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+canvas {
+  display: block;
+  cursor: crosshair;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  color: #a8bdb2;
+  font-size: 0.9rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button-group button {
+  padding: 0.5rem 1rem;
+  background: rgba(26, 93, 58, 0.1);
+  border: 1px solid rgba(26, 93, 58, 0.3);
+  color: #a8bdb2;
+}
+
+.button-group button:hover:not(:disabled) {
+  background: rgba(26, 93, 58, 0.2);
+  color: #f0f4f2;
+}
+
+.button-group button.active {
+  background: rgba(26, 93, 58, 0.3);
+  border-color: #1a5d3a;
+  color: #4ade80;
+}
+
+.button-group button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input[type="range"] {
+  width: 150px;
+  height: 6px;
+  background: rgba(26, 93, 58, 0.2);
+  outline: none;
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4ade80;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.play-button, .reset-button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(26, 93, 58, 0.2);
+  border: 1px solid #1a5d3a;
+  color: #4ade80;
+}
+
+.play-button:hover, .reset-button:hover {
+  background: rgba(26, 93, 58, 0.3);
+}
+
+.info-panel {
+  background: rgba(15, 25, 20, 0.4);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.info-panel h3 {
+  color: #4ade80;
+  margin-bottom: 1rem;
+}
+
+.info-panel ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.info-panel li {
+  color: #a8bdb2;
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.info-panel li::before {
+  content: "→";
+  position: absolute;
+  left: -1rem;
+  color: #4ade80;
+}
+
+.info-panel strong {
+  color: #f0f4f2;
+}
+
+.coming-soon {
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.coming-soon h2 {
+  color: #f0c674;
+  margin-bottom: 1rem;
+}
+
+.coming-soon ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.coming-soon li {
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.coming-soon li::before {
+  content: "→";
+  position: absolute;
+  left: -1rem;
+  color: #8fa99b;
+}
+
+.rendering {
+  color: #f0c674;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .button-group {
+    flex-wrap: wrap;
+  }
+
+  .button-group button {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .info-panel {
+    padding: 1.5rem;
+  }
+
+  .coming-soon {
+    padding: 1.5rem;
+  }
+}

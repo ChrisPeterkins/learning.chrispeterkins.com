@@ -1,0 +1,74 @@
+.home-page h1 {
+  color: #f0f4f2;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  color: #a8bdb2;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.topic-card {
+  background: rgba(15, 25, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 93, 58, 0.2);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.topic-card:hover {
+  background: rgba(15, 25, 20, 0.8);
+  border-color: rgba(26, 93, 58, 0.4);
+  transform: translateY(-2px);
+}
+
+.topic-card h3 {
+  color: #4ade80;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.topic-card p {
+  color: #a8bdb2;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.resources {
+  background: rgba(15, 25, 20, 0.4);
+  padding: 2rem;
+  border: 1px solid rgba(26, 93, 58, 0.2);
+}
+
+.resources h2 {
+  color: #f0f4f2;
+  margin-bottom: 1rem;
+}
+
+.resources ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.resources li {
+  color: #a8bdb2;
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.resources li::before {
+  content: "•";
+  position: absolute;
+  left: -1rem;
+  color: #4ade80;
+}

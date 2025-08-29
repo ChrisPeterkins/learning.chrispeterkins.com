@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test React Loading</title>
+</head>
+<body>
+    <h1>Testing React App Loading</h1>
+    <iframe src="/projects/react-patterns/" width="100%" height="600" style="border: 1px solid #ccc;"></iframe>
+    <script>
+        // Check for console errors
+        const iframe = document.querySelector('iframe');
+        iframe.onload = function() {
+            console.log('React app iframe loaded');
+        };
+    </script>
+</body>
+</html>
