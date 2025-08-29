@@ -87,7 +87,8 @@ const SearchingAlgorithmsPage: React.FC = () => {
     setFoundIndex(-1);
     setComparisons(0);
     let comps = 0;
-    const jumpSize = Math.floor(Math.sqrt(array.length));
+    const jumpStep = Math.floor(Math.sqrt(array.length));
+    let jumpSize = jumpStep;
     let prev = 0;
 
     // Jump to find the block
@@ -100,7 +101,7 @@ const SearchingAlgorithmsPage: React.FC = () => {
       await delay(600);
       
       prev = jumpSize;
-      jumpSize += Math.floor(Math.sqrt(array.length));
+      jumpSize += jumpStep;
       if (prev >= array.length) {
         setCurrentStep(`${target} not found in array after ${comps} comparisons.`);
         setCurrentIndex(-1);
