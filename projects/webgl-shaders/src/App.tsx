@@ -12,7 +12,7 @@ import PlaygroundPage from './pages/PlaygroundPage'
 function App() {
   return (
     <Router basename="/projects/webgl-shaders">
-      <div className="layout">
+      <div className="app-container">
         <Navigation />
         <main className="main-content">
           <Routes>

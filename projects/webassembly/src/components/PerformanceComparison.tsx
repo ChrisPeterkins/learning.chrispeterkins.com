@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { Play, Zap, Activity, Timer } from 'lucide-react';
+import { WasmCompiler, jsImplementations } from '../wasm/wasm-compiler';
 
 interface BenchmarkResult {
   name: string;
   jsTime: number;
   wasmTime: number;
   speedup: number;
+  iterations: number;
 }
 
 const PerformanceComparison: React.FC = () => {
-  const [iterations, setIterations] = useState(1000000);
+  const [iterations, setIterations] = useState(100000);
   const [results, setResults] = useState<BenchmarkResult[]>([]);
   const [running, setRunning] = useState(false);
   const [wasmModule, setWasmModule] = useState<any>(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     loadWasmModule();
@@ -19,120 +23,141 @@ const PerformanceComparison: React.FC = () => {
 
   const loadWasmModule = async () => {
     try {
-      const response = await fetch('/projects/webassembly/wasm/performance.wasm');
-      const bytes = await response.arrayBuffer();
-      const module = await WebAssembly.instantiate(bytes);
-      setWasmModule(module.instance.exports);
+      const wasm = await WasmCompiler.compile('algorithms');
+      setWasmModule(wasm.exports);
     } catch (error) {
       console.error('Failed to load WASM module:', error);
     }
   };
 
   const runBenchmarks = async () => {
+    if (!wasmModule) {
+      await loadWasmModule();
+      if (!wasmModule) return;
+    }
+
     setRunning(true);
+    setProgress(0);
     const benchmarkResults: BenchmarkResult[] = [];
 
-    // Fibonacci Benchmark
-    const fibJS = (n: number): number => {
-      if (n <= 1) return n;
-      return fibJS(n - 1) + fibJS(n - 2);
-    };
-
+    // Benchmark 1: Fibonacci
+    setProgress(20);
+    const fibN = 20;
+    const fibIterations = Math.min(iterations / 100, 1000);
+    
     const jsFibStart = performance.now();
-    for (let i = 0; i < iterations / 1000; i++) {
-      fibJS(20);
+    for (let i = 0; i < fibIterations; i++) {
+      jsImplementations.fibonacci(fibN);
     }
     const jsFibTime = performance.now() - jsFibStart;
 
     const wasmFibStart = performance.now();
-    if (wasmModule) {
-      for (let i = 0; i < iterations / 1000; i++) {
-        wasmModule.fibonacci(20);
-      }
+    for (let i = 0; i < fibIterations; i++) {
+      wasmModule.fibonacci(fibN);
     }
     const wasmFibTime = performance.now() - wasmFibStart;
 
     benchmarkResults.push({
-      name: 'Fibonacci (n=20)',
+      name: `Fibonacci (n=${fibN})`,
       jsTime: jsFibTime,
       wasmTime: wasmFibTime,
-      speedup: jsFibTime / wasmFibTime
+      speedup: jsFibTime / wasmFibTime,
+      iterations: fibIterations
     });
 
-    // Prime Number Check Benchmark
-    const isPrimeJS = (n: number): boolean => {
-      if (n <= 1) return false;
-      for (let i = 2; i * i <= n; i++) {
-        if (n % i === 0) return false;
-      }
-      return true;
-    };
-
+    // Benchmark 2: Prime Number Check
+    setProgress(40);
+    const primeN = 97;
+    
     const jsPrimeStart = performance.now();
     for (let i = 0; i < iterations; i++) {
-      isPrimeJS(97);
+      jsImplementations.isPrime(primeN);
     }
     const jsPrimeTime = performance.now() - jsPrimeStart;
 
     const wasmPrimeStart = performance.now();
-    if (wasmModule) {
-      for (let i = 0; i < iterations; i++) {
-        wasmModule.is_prime(97);
-      }
+    for (let i = 0; i < iterations; i++) {
+      wasmModule.isPrime(primeN);
     }
     const wasmPrimeTime = performance.now() - wasmPrimeStart;
 
     benchmarkResults.push({
-      name: 'Prime Check',
+      name: `Prime Check (n=${primeN})`,
       jsTime: jsPrimeTime,
       wasmTime: wasmPrimeTime,
-      speedup: jsPrimeTime / wasmPrimeTime
+      speedup: jsPrimeTime / wasmPrimeTime,
+      iterations
     });
 
-    // Matrix Multiplication Benchmark
-    const matrixMultiplyJS = (size: number) => {
-      const a = Array(size).fill(0).map(() => Array(size).fill(1));
-      const b = Array(size).fill(0).map(() => Array(size).fill(2));
-      const result = Array(size).fill(0).map(() => Array(size).fill(0));
-      
-      for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-          for (let k = 0; k < size; k++) {
-            result[i][j] += a[i][k] * b[k][j];
-          }
-        }
-      }
-      return result;
-    };
+    // Benchmark 3: Factorial
+    setProgress(60);
+    const factN = 15;
+    
+    const jsFactStart = performance.now();
+    for (let i = 0; i < iterations; i++) {
+      jsImplementations.factorial(factN);
+    }
+    const jsFactTime = performance.now() - jsFactStart;
 
+    const wasmFactStart = performance.now();
+    for (let i = 0; i < iterations; i++) {
+      wasmModule.factorial(factN);
+    }
+    const wasmFactTime = performance.now() - wasmFactStart;
+
+    benchmarkResults.push({
+      name: `Factorial (n=${factN})`,
+      jsTime: jsFactTime,
+      wasmTime: wasmFactTime,
+      speedup: jsFactTime / wasmFactTime,
+      iterations
+    });
+
+    // Benchmark 4: Matrix Operations
+    setProgress(80);
+    const matrixSize = 10;
+    const matrixIterations = Math.min(iterations / 100, 1000);
+    
     const jsMatrixStart = performance.now();
-    for (let i = 0; i < 100; i++) {
-      matrixMultiplyJS(10);
+    for (let i = 0; i < matrixIterations; i++) {
+      jsImplementations.matrixMultiply(matrixSize);
     }
     const jsMatrixTime = performance.now() - jsMatrixStart;
 
     const wasmMatrixStart = performance.now();
-    if (wasmModule) {
-      for (let i = 0; i < 100; i++) {
-        wasmModule.matrix_multiply(10);
-      }
+    for (let i = 0; i < matrixIterations; i++) {
+      wasmModule.matrixMultiply(matrixSize);
     }
     const wasmMatrixTime = performance.now() - wasmMatrixStart;
 
     benchmarkResults.push({
-      name: 'Matrix Multiply (10x10)',
+      name: `Matrix Multiply (${matrixSize}x${matrixSize})`,
       jsTime: jsMatrixTime,
       wasmTime: wasmMatrixTime,
-      speedup: jsMatrixTime / wasmMatrixTime
+      speedup: jsMatrixTime / wasmMatrixTime,
+      iterations: matrixIterations
     });
 
+    setProgress(100);
     setResults(benchmarkResults);
     setRunning(false);
   };
 
-  const getBarWidth = (speedup: number) => {
-    const maxSpeedup = Math.max(...results.map(r => r.speedup), 1);
-    return `${(speedup / maxSpeedup) * 100}%`;
+  const getSpeedupColor = (speedup: number) => {
+    if (speedup > 2) return '#10b981';
+    if (speedup > 1.5) return '#34d399';
+    if (speedup > 1) return '#86efac';
+    return '#fbbf24';
+  };
+
+  const getSpeedupLabel = (speedup: number) => {
+    if (speedup > 1) {
+      return `${speedup.toFixed(2)}x faster`;
+    } else if (speedup === 1) {
+      return 'Same speed';
+    } else {
+      return `${(1 / speedup).toFixed(2)}x slower`;
+    }
   };
 
   return (
@@ -141,8 +166,26 @@ const PerformanceComparison: React.FC = () => {
         <h2>Performance Comparison</h2>
         <p className="demo-description">
           Compare the performance of JavaScript vs WebAssembly for compute-intensive operations.
-          WebAssembly typically shows significant speedups for numerical computations.
+          WebAssembly provides near-native performance for numerical computations.
         </p>
+      </div>
+
+      <div className="wasm-features">
+        <div className="feature-card">
+          <Zap className="feature-icon" />
+          <h3>Near-Native Speed</h3>
+          <p>WebAssembly runs at near-native speed by taking advantage of common hardware capabilities.</p>
+        </div>
+        <div className="feature-card">
+          <Activity className="feature-icon" />
+          <h3>Low-Level Control</h3>
+          <p>Direct memory management and predictable performance characteristics.</p>
+        </div>
+        <div className="feature-card">
+          <Timer className="feature-icon" />
+          <h3>Parallel Execution</h3>
+          <p>Can run alongside JavaScript without blocking the main thread.</p>
+        </div>
       </div>
 
       <div className="controls-section">
@@ -152,55 +195,71 @@ const PerformanceComparison: React.FC = () => {
             type="number"
             className="control-input"
             value={iterations}
-            onChange={(e) => setIterations(Number(e.target.value))}
+            onChange={(e) => setIterations(Math.max(1000, Math.min(10000000, Number(e.target.value))))}
             min="1000"
             max="10000000"
             step="1000"
           />
         </div>
         <button 
-          className="btn"
+          className="btn btn-primary"
           onClick={runBenchmarks}
           disabled={running || !wasmModule}
         >
+          <Play size={16} />
           {running ? 'Running...' : 'Run Benchmarks'}
         </button>
+        {!wasmModule && (
+          <span className="wasm-loading">Loading WASM module...</span>
+        )}
       </div>
+
+      {running && (
+        <div className="progress-bar">
+          <div 
+            className="progress-fill" 
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      )}
 
       {results.length > 0 && (
         <div className="results-section">
-          <h3 style={{ marginBottom: '1rem', color: '#4ade80' }}>Benchmark Results</h3>
+          <h3>Benchmark Results</h3>
           <div className="benchmark-results">
             {results.map((result, index) => (
-              <div key={index}>
-                <h4 style={{ color: '#94a3b8', marginBottom: '0.5rem' }}>{result.name}</h4>
-                <div className="benchmark-item">
-                  <span className="benchmark-label">JavaScript</span>
-                  <div className="benchmark-bar">
-                    <div className="benchmark-fill" style={{ width: '100%' }}></div>
+              <div key={index} className="benchmark-card">
+                <h4>{result.name}</h4>
+                <p className="benchmark-iterations">{result.iterations.toLocaleString()} iterations</p>
+                
+                <div className="benchmark-comparison">
+                  <div className="benchmark-item">
+                    <span className="benchmark-label">JavaScript</span>
+                    <div className="benchmark-bar">
+                      <div 
+                        className="benchmark-fill js-fill" 
+                        style={{ width: '100%' }}
+                      />
+                    </div>
+                    <span className="benchmark-value">{result.jsTime.toFixed(2)}ms</span>
                   </div>
-                  <span className="benchmark-value">{result.jsTime.toFixed(2)}ms</span>
-                </div>
-                <div className="benchmark-item">
-                  <span className="benchmark-label">WebAssembly</span>
-                  <div className="benchmark-bar">
-                    <div 
-                      className="benchmark-fill" 
-                      style={{ 
-                        width: `${(result.wasmTime / result.jsTime) * 100}%`,
-                        background: 'linear-gradient(90deg, #10b981, #059669)'
-                      }}
-                    ></div>
+                  
+                  <div className="benchmark-item">
+                    <span className="benchmark-label">WebAssembly</span>
+                    <div className="benchmark-bar">
+                      <div 
+                        className="benchmark-fill wasm-fill" 
+                        style={{ 
+                          width: `${Math.min(100, (result.wasmTime / result.jsTime) * 100)}%`,
+                        }}
+                      />
+                    </div>
+                    <span className="benchmark-value">{result.wasmTime.toFixed(2)}ms</span>
                   </div>
-                  <span className="benchmark-value">{result.wasmTime.toFixed(2)}ms</span>
                 </div>
-                <div style={{ 
-                  textAlign: 'center', 
-                  marginTop: '0.5rem', 
-                  color: '#10b981',
-                  fontWeight: 'bold'
-                }}>
-                  {result.speedup.toFixed(2)}x faster
+                
+                <div className="speedup-indicator" style={{ color: getSpeedupColor(result.speedup) }}>
+                  {getSpeedupLabel(result.speedup)}
                 </div>
               </div>
             ))}
@@ -208,18 +267,46 @@ const PerformanceComparison: React.FC = () => {
         </div>
       )}
 
-      <div className="code-block">
-        <pre>{`// JavaScript Implementation
-function fibonacci(n) {
+      <div className="code-examples">
+        <h3>Implementation Examples</h3>
+        <div className="code-tabs">
+          <div className="code-tab">
+            <h4>JavaScript</h4>
+            <pre className="code-block">{`function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-// Rust/WebAssembly Implementation
-#[no_mangle]
-pub extern "C" fn fibonacci(n: i32) -> i32 {
-    if n <= 1 { n } else { fibonacci(n - 1) + fibonacci(n - 2) }
+function isPrime(n) {
+  if (n <= 1) return false;
+  if (n === 2) return true;
+  if (n % 2 === 0) return false;
+  
+  for (let i = 3; i * i <= n; i += 2) {
+    if (n % i === 0) return false;
+  }
+  return true;
 }`}</pre>
+          </div>
+          <div className="code-tab">
+            <h4>WebAssembly (WAT)</h4>
+            <pre className="code-block">{`(func $fibonacci (export "fibonacci") 
+  (param $n i32) (result i32)
+  (if (result i32)
+    (i32.le_s (local.get $n) (i32.const 1))
+    (then (local.get $n))
+    (else
+      (i32.add
+        (call $fibonacci 
+          (i32.sub (local.get $n) (i32.const 1)))
+        (call $fibonacci 
+          (i32.sub (local.get $n) (i32.const 2)))
+      )
+    )
+  )
+)`}</pre>
+          </div>
+        </div>
       </div>
     </div>
   );

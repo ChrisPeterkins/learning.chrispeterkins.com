@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  base: '/projects/css-houdini/',
+  base: '/projects/webgl-shaders/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -12,19 +12,11 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    port: 5173,
+    port: 5177,
     open: false
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          editor: ['monaco-editor', '@monaco-editor/react']
-        }
-      }
-    }
+    sourcemap: true
   }
 })

@@ -55,7 +55,7 @@ function App() {
 
   return (
     <Router basename="/projects/webassembly">
-      <div className="app">
+      <div className="app-container">
         <Navigation />
         
         <main className="main-content">

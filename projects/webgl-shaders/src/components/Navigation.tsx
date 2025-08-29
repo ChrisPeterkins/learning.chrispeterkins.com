@@ -1,45 +1,41 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navigation: React.FC = () => {
-  const location = useLocation()
-
-  const isActive = (path: string) => location.pathname === path
-
   return (
     <nav className="navigation">
       <div className="nav-header">
         <h2>WebGL Shaders</h2>
-        <span className="nav-subtitle">GLSL Programming & Visual Effects</span>
+        <p className="nav-subtitle">GLSL Programming & Visual Effects</p>
       </div>
 
       <div className="nav-section">
         <h3>Fundamentals</h3>
-        <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>
+        <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Overview
-        </Link>
-        <Link to="/basics" className={`nav-link ${isActive('/basics') ? 'active' : ''}`}>
+        </NavLink>
+        <NavLink to="/basics" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           GLSL Basics
-        </Link>
-        <Link to="/fragment-shaders" className={`nav-link ${isActive('/fragment-shaders') ? 'active' : ''}`}>
+        </NavLink>
+        <NavLink to="/fragment-shaders" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Fragment Shaders
-        </Link>
-        <Link to="/vertex-shaders" className={`nav-link ${isActive('/vertex-shaders') ? 'active' : ''}`}>
+        </NavLink>
+        <NavLink to="/vertex-shaders" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Vertex Shaders
-        </Link>
+        </NavLink>
       </div>
 
       <div className="nav-section">
         <h3>Advanced</h3>
-        <Link to="/patterns" className={`nav-link ${isActive('/patterns') ? 'active' : ''}`}>
+        <NavLink to="/patterns" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Shader Patterns
-        </Link>
-        <Link to="/post-processing" className={`nav-link ${isActive('/post-processing') ? 'active' : ''}`}>
+        </NavLink>
+        <NavLink to="/post-processing" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           Post-Processing
-        </Link>
-        <Link to="/playground" className={`nav-link ${isActive('/playground') ? 'active' : ''}`}>
-          🎨 Playground
-        </Link>
+        </NavLink>
+        <NavLink to="/playground" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Playground
+        </NavLink>
       </div>
 
       <div className="nav-footer">

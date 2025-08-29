@@ -12,7 +12,7 @@ import PlaygroundPage from './pages/PlaygroundPage';
 
 const App: React.FC = () => {
   return (
-    <div className="app">
+    <div className="app-container">
       <Navigation />
       <main className="main-content">
         <Routes>

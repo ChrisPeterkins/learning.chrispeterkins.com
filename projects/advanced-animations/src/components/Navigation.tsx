@@ -1,56 +1,56 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap, Wind, Sparkles, Waves, Box, Gauge, Clock, Home } from 'lucide-react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-
-  const navItems = [
-    { path: '/', label: 'Home', icon: <Home size={18} /> },
-    { path: '/gsap', label: 'GSAP', icon: <Zap size={18} /> },
-    { path: '/framer-motion', label: 'Framer Motion', icon: <Wind size={18} /> },
-    { path: '/lottie', label: 'Lottie', icon: <Sparkles size={18} /> },
-    { path: '/svg-animation', label: 'SVG Animation', icon: <Waves size={18} /> },
-    { path: '/css-3d', label: '3D CSS', icon: <Box size={18} /> },
-    { path: '/performance', label: 'Performance', icon: <Gauge size={18} /> },
-    { path: '/timeline', label: 'Timelines', icon: <Clock size={18} /> }
-  ];
-
-  const isActive = (path: string) => location.pathname === path;
-
   return (
     <nav className="navigation">
-      <div className="nav-brand">
-        <Link to="/" className="brand-link">
-          <Zap className="brand-icon" size={24} />
-          <span className="brand-text">Advanced Animations</span>
-        </Link>
+      <div className="nav-header">
+        <h2>Advanced Animations</h2>
+        <p className="nav-subtitle">Modern Web Animation</p>
       </div>
 
-      <button
-        className="nav-toggle"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
-      <div className={`nav-links ${isOpen ? 'nav-links--open' : ''}`}>
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`nav-link ${isActive(item.path) ? 'nav-link--active' : ''}`}
-            onClick={() => setIsOpen(false)}
-          >
-            {item.icon}
-            <span>{item.label}</span>
-          </Link>
-        ))}
+      <div className="nav-section">
+        <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Home
+        </NavLink>
       </div>
 
-      {isOpen && <div className="nav-overlay" onClick={() => setIsOpen(false)} />}
+      <div className="nav-section">
+        <h3>Animation Libraries</h3>
+        <NavLink to="/gsap" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          GSAP
+        </NavLink>
+        <NavLink to="/framer-motion" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Framer Motion
+        </NavLink>
+        <NavLink to="/lottie" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Lottie
+        </NavLink>
+      </div>
+
+      <div className="nav-section">
+        <h3>Techniques</h3>
+        <NavLink to="/svg-animation" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          SVG Animation
+        </NavLink>
+        <NavLink to="/css-3d" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          3D CSS
+        </NavLink>
+        <NavLink to="/timeline" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Timelines
+        </NavLink>
+      </div>
+
+      <div className="nav-section">
+        <h3>Optimization</h3>
+        <NavLink to="/performance" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Performance
+        </NavLink>
+      </div>
+
+      <div className="nav-footer">
+        <a href="/" className="back-link">← Back to Learning Hub</a>
+      </div>
     </nav>
   );
 };

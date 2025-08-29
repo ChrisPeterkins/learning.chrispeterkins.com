@@ -63,7 +63,7 @@ async function registerWorklets() {
 registerWorklets().then(() => {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/projects/css-houdini">
         <App />
       </BrowserRouter>
     </React.StrictMode>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layers, Circle, Zap, Sparkles, Sun, Cloud, Code, Gauge, ArrowRight } from 'lucide-react';
+import { Layers, Circle, Zap, Sparkles, Sun, Cloud, Code, ArrowRight } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const techniques = [

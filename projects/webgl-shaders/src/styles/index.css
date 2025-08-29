@@ -43,7 +43,7 @@ code, pre {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
-.layout {
+.app-container {
   display: flex;
   min-height: 100vh;
 }
@@ -52,7 +52,7 @@ code, pre {
   position: fixed;
   left: 0;
   top: 0;
-  width: 280px;
+  width: 260px;
   height: 100vh;
   background: var(--bg-secondary);
   backdrop-filter: blur(10px);
@@ -136,7 +136,7 @@ code, pre {
 .main-content {
   flex: 1;
   padding: 2rem;
-  margin-left: 280px;
+  margin-left: 260px;
   max-width: 1200px;
   width: 100%;
 }
@@ -364,7 +364,7 @@ code, pre {
     padding: 1rem;
   }
 
-  .layout {
+  .app-container {
     flex-direction: column;
   }
 
@@ -379,4 +379,328 @@ code, pre {
   .preset-buttons {
     grid-template-columns: 1fr;
   }
+}
+
+/* Shader Editor Styles */
+.shader-editor {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.shader-editor.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 0;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.editor-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editor-tabs .tab {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.editor-tabs .tab:hover {
+  background: rgba(26, 93, 58, 0.1);
+}
+
+.editor-tabs .tab.active {
+  background: var(--accent-green);
+  color: white;
+  border-color: var(--accent-green);
+}
+
+.editor-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.preset-selector {
+  padding: 0.5rem;
+  background: var(--code-bg);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  min-width: 150px;
+}
+
+.control-btn {
+  padding: 0.5rem;
+  background: rgba(26, 93, 58, 0.1);
+  border: 1px solid var(--border-primary);
+  color: var(--accent-green-bright);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background: rgba(26, 93, 58, 0.2);
+}
+
+.editor-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 600px;
+}
+
+.editor-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-editor {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.line-numbers {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.line-number {
+  padding: 0 0.5rem;
+  text-align: right;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.code-input {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  z-index: 2;
+}
+
+.code-highlight {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  pointer-events: none;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.code-highlight .keyword {
+  color: #ff79c6;
+}
+
+.code-highlight .builtin {
+  color: #8be9fd;
+}
+
+.code-highlight .function {
+  color: #50fa7b;
+}
+
+.code-highlight .number {
+  color: #bd93f9;
+}
+
+.code-highlight .comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+.error-panel {
+  background: rgba(220, 38, 38, 0.1);
+  border-top: 1px solid #dc2626;
+  padding: 1rem;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.error-panel pre {
+  margin-top: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.preview-panel {
+  border-left: 1px solid var(--border-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.preview-title {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.fps-counter {
+  background: rgba(26, 93, 58, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  color: var(--accent-green-bright);
+  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.preview-canvas {
+  flex: 1;
+  position: relative;
+  background: #000;
+}
+
+.preview-canvas .shader-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.editor-footer {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border-primary);
+}
+
+.uniform-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.uniform-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.uniform-control label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.uniform-control input[type="range"] {
+  width: 100px;
+}
+
+/* Playground Page Styles */
+.playground-container {
+  margin: 2rem 0;
+}
+
+.shader-reference {
+  margin-top: 4rem;
+}
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.reference-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.reference-card h3 {
+  color: var(--accent-green-bright);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.reference-content .code-block {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.tips-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tips-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+}
+
+.tips-list li:last-child {
+  border-bottom: none;
+}
+
+.tips-list strong {
+  color: var(--accent-green-bright);
+  margin-right: 0.5rem;
 }

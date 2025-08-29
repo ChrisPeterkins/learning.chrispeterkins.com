@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ray Marching & SDFs Laboratory</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,10 +16,14 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0a0f0d;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 66, 37, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(26, 93, 58, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 66, 37, 0.2) 0%, transparent 50%);
             min-height: 100vh;
-            color: #ffffff;
+            color: #f0f4f2;
         }
         
         .loading-container {
@@ -24,15 +31,15 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: white;
+            color: #f0f4f2;
             font-size: 1.2rem;
         }
         
         .loading-spinner {
             width: 40px;
             height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #00ffff;
+            border: 4px solid rgba(26, 93, 58, 0.3);
+            border-top: 4px solid #4ade80;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin-right: 1rem;

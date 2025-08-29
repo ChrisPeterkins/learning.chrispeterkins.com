@@ -4,6 +4,7 @@ import glsl from 'vite-plugin-glsl'
 import path from 'path'
 
 export default defineConfig({
+  base: '/projects/ray-marching/',
   plugins: [react(), glsl()],
   resolve: {
     alias: {

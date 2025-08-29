@@ -1,56 +1,56 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Palette, Layout, Settings, Play, Code, Monitor, Beaker } from 'lucide-react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-
-  const navItems = [
-    { path: '/', label: 'Home', icon: <Monitor size={18} /> },
-    { path: '/paint-api', label: 'Paint API', icon: <Palette size={18} /> },
-    { path: '/layout-api', label: 'Layout API', icon: <Layout size={18} /> },
-    { path: '/properties-api', label: 'Properties API', icon: <Settings size={18} /> },
-    { path: '/animation-worklet', label: 'Animation Worklet', icon: <Play size={18} /> },
-    { path: '/typed-om', label: 'Typed OM', icon: <Code size={18} /> },
-    { path: '/compatibility', label: 'Browser Support', icon: <Monitor size={18} /> },
-    { path: '/playground', label: 'Playground', icon: <Beaker size={18} /> }
-  ];
-
-  const isActive = (path: string) => location.pathname === path;
-
   return (
     <nav className="navigation">
-      <div className="nav-brand">
-        <Link to="/" className="brand-link">
-          <Palette className="brand-icon" size={24} />
-          <span className="brand-text">CSS Houdini Lab</span>
-        </Link>
+      <div className="nav-header">
+        <h2>CSS Houdini Lab</h2>
+        <p className="nav-subtitle">Custom CSS Magic</p>
       </div>
 
-      <button
-        className="nav-toggle"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
-      <div className={`nav-links ${isOpen ? 'nav-links--open' : ''}`}>
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`nav-link ${isActive(item.path) ? 'nav-link--active' : ''}`}
-            onClick={() => setIsOpen(false)}
-          >
-            {item.icon}
-            <span>{item.label}</span>
-          </Link>
-        ))}
+      <div className="nav-section">
+        <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Home
+        </NavLink>
       </div>
 
-      {isOpen && <div className="nav-overlay" onClick={() => setIsOpen(false)} />}
+      <div className="nav-section">
+        <h3>Core APIs</h3>
+        <NavLink to="/paint-api" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Paint API
+        </NavLink>
+        <NavLink to="/layout-api" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Layout API
+        </NavLink>
+        <NavLink to="/properties-api" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Properties API
+        </NavLink>
+      </div>
+
+      <div className="nav-section">
+        <h3>Advanced Features</h3>
+        <NavLink to="/animation-worklet" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Animation Worklet
+        </NavLink>
+        <NavLink to="/typed-om" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Typed OM
+        </NavLink>
+      </div>
+
+      <div className="nav-section">
+        <h3>Resources</h3>
+        <NavLink to="/compatibility" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Browser Support
+        </NavLink>
+        <NavLink to="/playground" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          Playground
+        </NavLink>
+      </div>
+
+      <div className="nav-footer">
+        <a href="/" className="back-link">← Back to Learning Hub</a>
+      </div>
     </nav>
   );
 };
