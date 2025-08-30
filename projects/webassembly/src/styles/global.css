@@ -24,7 +24,6 @@ body {
     radial-gradient(circle at 40% 20%, rgba(0, 66, 37, 0.2) 0%, transparent 50%);
   min-height: 100vh;
   color: #f0f4f2;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -652,8 +651,8 @@ code, pre {
   }
   
   .navigation {
-    position: static;
     width: 100%;
+    position: static;
     height: auto;
     border-right: none;
     border-bottom: 1px solid rgba(26, 93, 58, 0.2);
