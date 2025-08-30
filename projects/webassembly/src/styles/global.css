@@ -635,7 +635,7 @@ code, pre {
 }
 
 @media (max-width: 768px) {
-  .app {
+  .app-container {
     flex-direction: column;
   }
   

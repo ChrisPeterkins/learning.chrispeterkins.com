@@ -205,6 +205,232 @@
         .project-card.disabled:hover::before {
             transform: translateX(-100%);
         }
+        
+        /* Mobile Navigation Tabs */
+        .mobile-nav {
+            display: none;
+            position: sticky;
+            top: 0;
+            background: rgba(15, 25, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 93, 58, 0.2);
+            margin: -2rem -2rem 2rem -2rem;
+            padding: 1rem 0;
+            z-index: 100;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .mobile-nav-inner {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0 2rem;
+            min-width: max-content;
+        }
+        
+        .mobile-nav button {
+            padding: 0.6rem 1.2rem;
+            background: transparent;
+            border: 1px solid rgba(26, 93, 58, 0.3);
+            color: #8fa99b;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        
+        .mobile-nav button.active {
+            background: rgba(26, 93, 58, 0.2);
+            border-color: #1a5d3a;
+            color: #4ade80;
+        }
+        
+        .mobile-nav button:hover {
+            border-color: #1a5d3a;
+            color: #f0f4f2;
+        }
+        
+        /* Mobile Project Cards */
+        .projects-mobile-view {
+            display: none;
+        }
+        
+        .project-mobile-card {
+            background: rgba(15, 25, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(26, 93, 58, 0.2);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .project-mobile-card:active {
+            transform: scale(0.98);
+        }
+        
+        .project-mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-mobile-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #f0f4f2;
+            font-weight: 400;
+        }
+        
+        .project-mobile-status {
+            font-size: 0.65rem;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .project-mobile-description {
+            color: #a8bdb2;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-mobile-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        
+        .project-mobile-tech span {
+            font-size: 0.7rem;
+            color: #8fa99b;
+            background: rgba(26, 93, 58, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        /* Category sections for mobile */
+        .category-section {
+            margin-bottom: 2rem;
+        }
+        
+        .category-title {
+            color: #8fa99b;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            
+            .container {
+                padding: 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-top: 2rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 2rem;
+            }
+            
+            /* Hide desktop grid on mobile */
+            .projects-grid {
+                display: none;
+            }
+            
+            /* Show mobile navigation and view */
+            .mobile-nav {
+                display: block;
+            }
+            
+            .projects-mobile-view {
+                display: block;
+                padding: 0 1rem 2rem 1rem;
+            }
+            
+            /* Adjust project cards for better mobile UX */
+            .project-mobile-card {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .project-mobile-card::after {
+                content: '→';
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #1a5d3a;
+                font-size: 1.2rem;
+                transition: transform 0.3s ease;
+            }
+            
+            .project-mobile-card:hover::after {
+                transform: translateY(-50%) translateX(3px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .subtitle {
+                font-size: 0.8rem;
+                padding: 0 1rem;
+            }
+            
+            .mobile-nav button {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .project-mobile-title {
+                font-size: 1.1rem;
+            }
+            
+            .project-mobile-description {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* iPad and Tablet specific */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+            
+            .project-card {
+                padding: 2rem;
+            }
+            
+            .project-card h2 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -497,6 +723,281 @@
                 </div>
             </a>
         </div>
+        
+        <!-- Mobile Navigation and View -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-inner">
+                <button class="active" data-category="all">All Projects</button>
+                <button data-category="3d">3D & Graphics</button>
+                <button data-category="frameworks">Frameworks</button>
+                <button data-category="advanced">Advanced Topics</button>
+                <button data-category="tools">Dev Tools</button>
+                <button data-category="creative">Creative</button>
+            </div>
+        </div>
+        
+        <div class="projects-mobile-view">
+            <!-- 3D & Graphics -->
+            <div class="category-section" data-category="3d">
+                <div class="category-title">3D & Graphics</div>
+                <a href="/projects/three-js/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Three.js Journey</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Master 3D graphics on the web with interactive examples.</div>
+                    <div class="project-mobile-tech">
+                        <span>Three.js</span>
+                        <span>WebGL</span>
+                        <span>JavaScript</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/webgl-shaders/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">WebGL Shaders</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Deep dive into GLSL shaders with interactive playground.</div>
+                    <div class="project-mobile-tech">
+                        <span>WebGL</span>
+                        <span>GLSL</span>
+                        <span>Canvas</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/ray-marching/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Ray Marching</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Explore ray marching techniques and signed distance fields.</div>
+                    <div class="project-mobile-tech">
+                        <span>GLSL</span>
+                        <span>SDF</span>
+                        <span>Math</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Frameworks -->
+            <div class="category-section" data-category="frameworks">
+                <div class="category-title">Frameworks & Libraries</div>
+                <a href="/projects/react-patterns/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">React Patterns</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Advanced React patterns, hooks, and best practices.</div>
+                    <div class="project-mobile-tech">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Hooks</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/vue-composition/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Vue Composition API</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Master Vue 3's Composition API with practical examples.</div>
+                    <div class="project-mobile-tech">
+                        <span>Vue 3</span>
+                        <span>TypeScript</span>
+                        <span>Vite</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/svelte-kit/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">SvelteKit</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Build full-stack applications with SvelteKit.</div>
+                    <div class="project-mobile-tech">
+                        <span>SvelteKit</span>
+                        <span>TypeScript</span>
+                        <span>Vite</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Advanced Topics -->
+            <div class="category-section" data-category="advanced">
+                <div class="category-title">Advanced Topics</div>
+                <a href="/projects/webassembly/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">WebAssembly</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">High-performance computing in the browser.</div>
+                    <div class="project-mobile-tech">
+                        <span>WASM</span>
+                        <span>Rust</span>
+                        <span>C++</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/service-workers-pwas/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Service Workers & PWAs</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Progressive Web Apps with offline capabilities.</div>
+                    <div class="project-mobile-tech">
+                        <span>Service Workers</span>
+                        <span>PWA</span>
+                        <span>Cache API</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/web-components/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Web Components</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Build reusable custom elements with Web Components.</div>
+                    <div class="project-mobile-tech">
+                        <span>Custom Elements</span>
+                        <span>Shadow DOM</span>
+                        <span>LitElement</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Dev Tools & Testing -->
+            <div class="category-section" data-category="tools">
+                <div class="category-title">Dev Tools & Testing</div>
+                <a href="/projects/browser-devtools/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Browser DevTools</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Master browser developer tools for debugging.</div>
+                    <div class="project-mobile-tech">
+                        <span>Chrome DevTools</span>
+                        <span>Performance</span>
+                        <span>Debugging</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/performance-lab/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Performance Lab</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Web performance optimization techniques.</div>
+                    <div class="project-mobile-tech">
+                        <span>Lighthouse</span>
+                        <span>Web Vitals</span>
+                        <span>Optimization</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/testing-strategies/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Testing Strategies</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Comprehensive testing approaches for web apps.</div>
+                    <div class="project-mobile-tech">
+                        <span>Jest</span>
+                        <span>Cypress</span>
+                        <span>Testing Library</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Creative & Visual -->
+            <div class="category-section" data-category="creative">
+                <div class="category-title">Creative & Visual</div>
+                <a href="/projects/css-animations/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">CSS Animations</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Advanced CSS animations and transitions.</div>
+                    <div class="project-mobile-tech">
+                        <span>CSS3</span>
+                        <span>Keyframes</span>
+                        <span>Transitions</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/advanced-animations/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Advanced Animations</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">GSAP, Framer Motion, and particle systems.</div>
+                    <div class="project-mobile-tech">
+                        <span>GSAP</span>
+                        <span>Framer Motion</span>
+                        <span>Particles</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/data-visualization/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Data Visualization</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Interactive data visualization with D3.js.</div>
+                    <div class="project-mobile-tech">
+                        <span>D3.js</span>
+                        <span>SVG</span>
+                        <span>Charts</span>
+                    </div>
+                </a>
+                
+                <a href="/projects/creative-coding/" class="project-mobile-card">
+                    <div class="project-mobile-header">
+                        <div class="project-mobile-title">Creative Coding</div>
+                        <span class="project-mobile-status status-active">Active</span>
+                    </div>
+                    <div class="project-mobile-description">Generative art and creative algorithms.</div>
+                    <div class="project-mobile-tech">
+                        <span>P5.js</span>
+                        <span>Canvas</span>
+                        <span>Generative</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Add remaining projects under appropriate categories -->
+        </div>
+        
+        <script>
+            // Mobile category filter
+            const categoryButtons = document.querySelectorAll('.mobile-nav button');
+            const categorySections = document.querySelectorAll('.category-section');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Show/hide categories
+                    const selectedCategory = button.dataset.category;
+                    
+                    if (selectedCategory === 'all') {
+                        categorySections.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                    } else {
+                        categorySections.forEach(section => {
+                            if (section.dataset.category === selectedCategory) {
+                                section.style.display = 'block';
+                            } else {
+                                section.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
         
         <footer>
             <p>Created by <a href="https://chrispeterkins.com">Chris Peterkins</a></p>
