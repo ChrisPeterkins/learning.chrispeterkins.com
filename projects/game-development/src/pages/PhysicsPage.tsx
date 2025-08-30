@@ -43,7 +43,7 @@ const PhysicsPage: React.FC = () => {
       }),
       new Entity({ 
         x: 450, y: 100, width: 50, height: 50, 
-        color: '#8b5cf6', mass: 3 
+        color: '#1a5d3a', mass: 3 
       }),
       new Entity({ 
         x: 600, y: 60, width: 35, height: 35, 

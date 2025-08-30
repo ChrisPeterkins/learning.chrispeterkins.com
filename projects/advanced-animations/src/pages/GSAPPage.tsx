@@ -143,7 +143,7 @@ const GSAPPage: React.FC = () => {
             <div
               ref={scrollBoxRef}
               className="animated-box"
-              style={{ background: 'linear-gradient(45deg, #764ba2, #667eea)' }}
+              style={{ background: 'linear-gradient(45deg, #1a5d3a, #4ade80)' }}
             />
           </div>
           <div style={{ height: '200px' }}>

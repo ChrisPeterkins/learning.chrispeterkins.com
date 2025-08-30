@@ -7,7 +7,7 @@ const PlaygroundPage: React.FC = () => {
   height: 200px;
   background: paint(checkerboard);
   --checkerboard-size: 25px;
-  --checkerboard-color1: #667eea;
+  --checkerboard-color1: #1a5d3a;
   --checkerboard-color2: #ffffff;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -15,7 +15,7 @@ const PlaygroundPage: React.FC = () => {
 
 .demo-element:hover {
   --checkerboard-size: 15px;
-  --checkerboard-color1: #764ba2;
+  --checkerboard-color1: #0a2f1d;
   transform: scale(1.05);
 }`);
 
@@ -27,7 +27,7 @@ class PlaygroundPainter {
 
   paint(ctx, geom, properties) {
     const size = parseInt(properties.get('--size')) || 20;
-    const color1 = properties.get('--color1') || '#667eea';
+    const color1 = properties.get('--color1') || '#1a5d3a';
     const color2 = properties.get('--color2') || '#ffffff';
 
     // Your custom drawing code here
@@ -51,7 +51,7 @@ registerPaint('playground', PlaygroundPainter);`);
   height: 200px;
   background: paint(checkerboard);
   --checkerboard-size: 25px;
-  --checkerboard-color1: #667eea;
+  --checkerboard-color1: #1a5d3a;
   --checkerboard-color2: #ffffff;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -59,7 +59,7 @@ registerPaint('playground', PlaygroundPainter);`);
 
 .demo-element:hover {
   --checkerboard-size: 15px;
-  --checkerboard-color1: #764ba2;
+  --checkerboard-color1: #0a2f1d;
   transform: scale(1.05);
 }`);
   };
@@ -189,7 +189,7 @@ registerPaint('playground', PlaygroundPainter);`);
                   height: '200px',
                   background: 'paint(checkerboard)',
                   '--checkerboard-size': '25px',
-                  '--checkerboard-color1': '#667eea',
+                  '--checkerboard-color1': '#1a5d3a',
                   '--checkerboard-color2': '#ffffff',
                   borderRadius: '8px',
                   transition: 'all 0.3s ease'
@@ -227,7 +227,7 @@ registerPaint('playground', PlaygroundPainter);`);
                     '--noise-scale': '0.02',
                     '--noise-colors': '#ff6b6b,#4ecdc4,#45b7d1',
                     '--checkerboard-size': '15px',
-                    '--checkerboard-color1': '#667eea',
+                    '--checkerboard-color1': '#1a5d3a',
                     '--checkerboard-color2': '#ffffff',
                     borderRadius: '4px'
                   } as any}

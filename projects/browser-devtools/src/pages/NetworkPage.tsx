@@ -116,7 +116,7 @@ const NetworkPage: React.FC = () => {
           const colors = {
             dns: '#3b82f6',
             connect: '#f59e0b',
-            ssl: '#8b5cf6',
+            ssl: '#1a5d3a',
             request: '#ef4444',
             response: '#4ade80'
           };

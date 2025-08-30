@@ -14,7 +14,7 @@ const SVGAnimationPage: React.FC = () => {
       <div className="section">
         <div className="demo-preview">
           <svg width="200" height="100" viewBox="0 0 200 100">
-            <path d="M10 50 Q 100 10 190 50" stroke="#667eea" strokeWidth="3" fill="none">
+            <path d="M10 50 Q 100 10 190 50" stroke="#1a5d3a" strokeWidth="3" fill="none">
               <animate attributeName="d" values="M10 50 Q 100 10 190 50;M10 50 Q 100 90 190 50;M10 50 Q 100 10 190 50" dur="2s" repeatCount="indefinite"/>
             </path>
           </svg>

@@ -90,7 +90,7 @@ const AnimationWorkletPage: React.FC = () => {
               style={{
                 width: '60px',
                 height: '60px',
-                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                background: 'linear-gradient(45deg, #1a5d3a, #4ade80)',
                 borderRadius: '50%',
                 animation: `spring-bounce 2s ease-out infinite`,
                 '--spring-stiffness': stiffness,

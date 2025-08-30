@@ -495,7 +495,7 @@ const GSAPAdvancedPage: React.FC = () => {
         }
 
         .bg-layer {
-          background: rgba(102, 126, 234, 0.3);
+          background: rgba(26, 93, 58, 0.3);
           top: 20%;
           left: 10%;
         }
@@ -507,7 +507,7 @@ const GSAPAdvancedPage: React.FC = () => {
         }
 
         .front-layer {
-          background: rgba(102, 126, 234, 0.8);
+          background: rgba(26, 93, 58, 0.8);
           bottom: 20%;
           left: 30%;
         }
@@ -531,7 +531,7 @@ const GSAPAdvancedPage: React.FC = () => {
         }
 
         .magnetic-button:hover {
-          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+          box-shadow: 0 10px 30px rgba(26, 93, 58, 0.4);
         }
 
         .drag-container {

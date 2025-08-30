@@ -19,7 +19,7 @@
   --code-bg: rgba(15, 25, 20, 0.9);
   --code-border: rgba(143, 169, 155, 0.2);
   --type-blue: #3b82f6;
-  --type-purple: #a855f7;
+  --type-green: #4ade80;
   --type-yellow: #fbbf24;
 }
 
@@ -177,7 +177,7 @@ code, pre {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--type-blue), var(--type-purple), var(--type-yellow));
+  background: linear-gradient(90deg, var(--type-blue), var(--type-green), var(--type-yellow));
 }
 
 .example-header {
@@ -217,9 +217,9 @@ code, pre {
 }
 
 .badge-advanced {
-  color: var(--type-purple);
-  border-color: rgba(168, 85, 247, 0.3);
-  background: rgba(168, 85, 247, 0.1);
+  color: var(--type-green);
+  border-color: rgba(74, 222, 128, 0.3);
+  background: rgba(74, 222, 128, 0.1);
 }
 
 .code-block {

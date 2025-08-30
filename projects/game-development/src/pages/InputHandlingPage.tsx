@@ -252,7 +252,7 @@ const InputHandlingPage: React.FC = () => {
 
   const createCollectibles = (canvas: HTMLCanvasElement) => {
     collectiblesRef.current = [];
-    const colors = ['#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#ec4899'];
+    const colors = ['#f59e0b', '#ef4444', '#1a5d3a', '#06b6d4', '#ec4899'];
     
     for (let i = 0; i < 5; i++) {
       createNewCollectible(canvas);
@@ -260,7 +260,7 @@ const InputHandlingPage: React.FC = () => {
   };
 
   const createNewCollectible = (canvas: HTMLCanvasElement) => {
-    const colors = ['#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#ec4899'];
+    const colors = ['#f59e0b', '#ef4444', '#1a5d3a', '#06b6d4', '#ec4899'];
     const collectible = new Entity({
       x: Math.random() * (canvas.width - 40) + 20,
       y: Math.random() * (canvas.height - 40) + 20,

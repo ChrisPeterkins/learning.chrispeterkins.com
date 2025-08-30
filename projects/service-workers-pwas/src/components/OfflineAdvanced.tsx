@@ -668,7 +668,7 @@ const OfflineAdvanced: React.FC = () => {
 
         .btn-primary:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+          box-shadow: 0 4px 12px rgba(26, 93, 58, 0.4);
         }
 
         .btn-secondary {

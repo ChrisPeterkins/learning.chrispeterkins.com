@@ -3,13 +3,13 @@ import { Palette, Download, RefreshCw } from 'lucide-react';
 
 const PaintAPIPage: React.FC = () => {
   const [checkerboardSize, setCheckerboardSize] = useState(30);
-  const [checkerboardColor1, setCheckerboardColor1] = useState('#667eea');
+  const [checkerboardColor1, setCheckerboardColor1] = useState('#1a5d3a');
   const [checkerboardColor2, setCheckerboardColor2] = useState('#ffffff');
   
   const [rippleX, setRippleX] = useState(150);
   const [rippleY, setRippleY] = useState(100);
   const [rippleSize, setRippleSize] = useState(50);
-  const [rippleColor, setRippleColor] = useState('#764ba2');
+  const [rippleColor, setRippleColor] = useState('#4ade80');
   const [isAnimating, setIsAnimating] = useState(false);
   
   const [noiseScale, setNoiseScale] = useState(0.01);
@@ -94,7 +94,7 @@ registerPaint('checkerboard', CheckerboardPainter);`;
 .element {
   background: paint(checkerboard);
   --checkerboard-size: 30px;
-  --checkerboard-color1: #667eea;
+  --checkerboard-color1: #1a5d3a;
   --checkerboard-color2: #ffffff;
 }`;
 

@@ -117,8 +117,8 @@ const HomePage: React.FC = () => {
                     <span
                       key={i}
                       style={{
-                        background: 'rgba(102, 126, 234, 0.1)',
-                        color: '#667eea',
+                        background: 'rgba(26, 93, 58, 0.1)',
+                        color: '#1a5d3a',
                         padding: '0.25rem 0.5rem',
                         borderRadius: '0.25rem',
                         fontSize: '0.8rem',
@@ -224,14 +224,14 @@ const HomePage: React.FC = () => {
             alignItems: 'center',
             gap: '1rem',
             padding: '1rem',
-            background: 'rgba(102, 126, 234, 0.1)',
+            background: 'rgba(26, 93, 58, 0.1)',
             borderRadius: '0.5rem',
-            borderLeft: '4px solid #667eea'
+            borderLeft: '4px solid #1a5d3a'
           }}>
             <div style={{
               width: '24px',
               height: '24px',
-              background: '#667eea',
+              background: '#1a5d3a',
               color: 'white',
               borderRadius: '50%',
               display: 'flex',
@@ -252,14 +252,14 @@ const HomePage: React.FC = () => {
             alignItems: 'center',
             gap: '1rem',
             padding: '1rem',
-            background: 'rgba(102, 126, 234, 0.1)',
+            background: 'rgba(26, 93, 58, 0.1)',
             borderRadius: '0.5rem',
-            borderLeft: '4px solid #667eea'
+            borderLeft: '4px solid #1a5d3a'
           }}>
             <div style={{
               width: '24px',
               height: '24px',
-              background: '#667eea',
+              background: '#1a5d3a',
               color: 'white',
               borderRadius: '50%',
               display: 'flex',
@@ -280,14 +280,14 @@ const HomePage: React.FC = () => {
             alignItems: 'center',
             gap: '1rem',
             padding: '1rem',
-            background: 'rgba(102, 126, 234, 0.1)',
+            background: 'rgba(26, 93, 58, 0.1)',
             borderRadius: '0.5rem',
-            borderLeft: '4px solid #667eea'
+            borderLeft: '4px solid #1a5d3a'
           }}>
             <div style={{
               width: '24px',
               height: '24px',
-              background: '#667eea',
+              background: '#1a5d3a',
               color: 'white',
               borderRadius: '50%',
               display: 'flex',

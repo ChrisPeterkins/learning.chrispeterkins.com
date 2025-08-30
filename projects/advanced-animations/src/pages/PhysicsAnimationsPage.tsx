@@ -208,7 +208,7 @@ const PhysicsAnimationsPage: React.FC = () => {
       ctx.fill();
       
       // Draw trail
-      ctx.strokeStyle = 'rgba(102, 126, 234, 0.2)';
+      ctx.strokeStyle = 'rgba(26, 93, 58, 0.2)';
       ctx.lineWidth = 40;
       ctx.lineCap = 'round';
       ctx.beginPath();
@@ -373,7 +373,7 @@ const PhysicsAnimationsPage: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw springs
-      ctx.strokeStyle = 'rgba(102, 126, 234, 0.3)';
+      ctx.strokeStyle = 'rgba(26, 93, 58, 0.3)';
       ctx.lineWidth = 2;
       springs.forEach(spring => {
         ctx.beginPath();

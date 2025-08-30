@@ -3,7 +3,7 @@ import { Settings, Check, AlertCircle, Info } from 'lucide-react';
 
 const PropertiesAPIPage: React.FC = () => {
   const [customLength, setCustomLength] = useState(100);
-  const [customColor, setCustomColor] = useState('#667eea');
+  const [customColor, setCustomColor] = useState('#1a5d3a');
   const [customNumber, setCustomNumber] = useState(0.5);
   const [animationProgress, setAnimationProgress] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -143,7 +143,7 @@ CSS.registerProperty({
                 '--my-length': `${customLength}px`,
                 width: 'var(--my-length)',
                 height: '60px',
-                background: 'linear-gradient(90deg, #667eea, #764ba2)',
+                background: 'linear-gradient(90deg, #1a5d3a, #4ade80)',
                 borderRadius: '8px',
                 transition: 'width 0.3s ease',
                 display: 'flex',
@@ -242,7 +242,7 @@ transition: width 0.3s ease;`}
                 transform: `scale(${0.5 + customNumber * 0.5})`,
                 width: '100px',
                 height: '100px',
-                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                background: 'linear-gradient(45deg, #1a5d3a, #4ade80)',
                 borderRadius: '8px',
                 transition: 'opacity 0.3s ease, transform 0.3s ease',
                 display: 'flex',
@@ -305,7 +305,7 @@ transition: width 0.3s ease;`}
                   transform: 'translateY(-50%)',
                   width: '40px',
                   height: '40px',
-                  backgroundColor: '#667eea',
+                  backgroundColor: '#1a5d3a',
                   borderRadius: '50%',
                   transition: isAnimating ? 'none' : 'left 0.3s ease'
                 } as any}
@@ -328,7 +328,7 @@ transition: width 0.3s ease;`}
                   style={{
                     width: `calc(var(--animation-progress) * 100%)`,
                     height: '100%',
-                    backgroundColor: '#764ba2',
+                    backgroundColor: '#4ade80',
                     borderRadius: '2px',
                     transition: isAnimating ? 'none' : 'width 0.3s ease'
                   } as any}

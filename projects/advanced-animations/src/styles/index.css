@@ -525,7 +525,7 @@ a:hover {
   }
 
   .nav-link.active {
-    border-color: #667eea;
+    border-color: var(--accent-green-bright);
   }
 }
 

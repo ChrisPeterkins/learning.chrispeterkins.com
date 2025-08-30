@@ -57,7 +57,7 @@ const LayoutAPIPage: React.FC = () => {
                 <div
                   key={i}
                   style={{
-                    background: `linear-gradient(135deg, #667eea, #764ba2)`,
+                    background: `linear-gradient(135deg, #1a5d3a, #4ade80)`,
                     borderRadius: '4px',
                     height: `${height}px`,
                     display: 'flex',
@@ -113,7 +113,7 @@ const LayoutAPIPage: React.FC = () => {
                     flex: `${flex}`,
                     minWidth: '40px',
                     height: `${50 + i * 15}px`,
-                    background: '#667eea',
+                    background: '#1a5d3a',
                     borderRadius: '4px',
                     display: 'flex',
                     alignItems: 'center',

@@ -29,7 +29,7 @@ const EventLoopPage: React.FC = () => {
     {
       name: 'Idle, Prepare',
       description: 'Internal use only',
-      color: '#a78bfa',
+      color: '#4ade80',
       active: false
     },
     {

@@ -476,7 +476,7 @@ const ScrollAnimationsPage: React.FC = () => {
           width: 100%;
           height: 100%;
           background: radial-gradient(circle at center, 
-            rgba(102, 126, 234, 0.3), 
+            rgba(26, 93, 58, 0.3), 
             rgba(118, 75, 162, 0.2),
             transparent);
         }

@@ -124,8 +124,8 @@ const HomePage: React.FC = () => {
               style={{
                 background: 'paint(checkerboard)',
                 '--checkerboard-size': '25px',
-                '--checkerboard-color1': '#667eea',
-                '--checkerboard-color2': '#764ba2'
+                '--checkerboard-color1': '#1a5d3a',
+                '--checkerboard-color2': '#0a2f1d'
               } as any}
             />
             <p className="demo-description">
@@ -140,7 +140,7 @@ const HomePage: React.FC = () => {
                 style={{
                   width: '80%',
                   height: '60%',
-                  background: 'linear-gradient(45deg, var(--demo-color, #667eea), var(--demo-color-2, #764ba2))',
+                  background: 'linear-gradient(45deg, var(--demo-color, #1a5d3a), var(--demo-color-2, #0a2f1d))',
                   borderRadius: '8px',
                   animation: 'pulse 2s ease-in-out infinite'
                 } as any}
@@ -158,7 +158,7 @@ const HomePage: React.FC = () => {
                 style={{
                   width: '60px',
                   height: '60px',
-                  background: '#667eea',
+                  background: '#1a5d3a',
                   borderRadius: '50%',
                   animation: 'bounce 1.5s ease-in-out infinite'
                 }}

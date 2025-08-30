@@ -267,7 +267,7 @@ const EntitySystemPage: React.FC = () => {
         break;
       case 'tank':
         entity.addComponent(new VelocityComponent(0, 0));
-        entity.addComponent(new RenderComponent(40, 40, '#8b5cf6'));
+        entity.addComponent(new RenderComponent(40, 40, '#1a5d3a'));
         entity.addComponent(new HealthComponent(300));
         break;
     }

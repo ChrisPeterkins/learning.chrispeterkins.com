@@ -60,7 +60,7 @@ const ScatterPlotsPage: React.FC = () => {
 
   const colorScale = d3.scaleOrdinal()
     .domain(['Setosa', 'Versicolor', 'Virginica', 'Compact', 'Mid-size', 'Full-size', 'A', 'B', 'C'])
-    .range(['#4ade80', '#22d3ee', '#a78bfa', '#f59e0b', '#ef4444', '#ec4899', '#8b5cf6', '#06b6d4', '#10b981'])
+    .range(['#4ade80', '#22d3ee', '#4ade80', '#f59e0b', '#ef4444', '#ec4899', '#1a5d3a', '#06b6d4', '#10b981'])
 
   // Scatter Plot
   useEffect(() => {
@@ -393,7 +393,7 @@ const sizeScale = d3.scaleSqrt()
 
 const colorScale = d3.scaleOrdinal()
   .domain(categories)
-  .range(['#4ade80', '#22d3ee', '#a78bfa'])
+  .range(['#4ade80', '#22d3ee', '#4ade80'])
 
 // Create circles
 g.selectAll('.dot')

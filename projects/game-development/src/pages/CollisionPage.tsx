@@ -32,7 +32,7 @@ const CollisionPage: React.FC = () => {
       new Entity({ x: 100, y: 100, width: 40, height: 40, color: '#4ade80' }),
       new Entity({ x: 300, y: 200, width: 50, height: 30, color: '#f59e0b' }),
       new Entity({ x: 500, y: 150, width: 35, height: 35, color: '#ef4444' }),
-      new Entity({ x: 200, y: 300, width: 60, height: 25, color: '#8b5cf6' }),
+      new Entity({ x: 200, y: 300, width: 60, height: 25, color: '#1a5d3a' }),
       new Entity({ x: 600, y: 300, width: 45, height: 45, color: '#06b6d4' })
     ];
 
@@ -85,7 +85,7 @@ const CollisionPage: React.FC = () => {
         entity.color = entity.id === entitiesRef.current[0].id ? '#4ade80' :
                       entity.id === entitiesRef.current[1].id ? '#f59e0b' :
                       entity.id === entitiesRef.current[2].id ? '#ef4444' :
-                      entity.id === entitiesRef.current[3].id ? '#8b5cf6' : '#06b6d4';
+                      entity.id === entitiesRef.current[3].id ? '#1a5d3a' : '#06b6d4';
       });
 
       // Check collisions between entities

@@ -116,8 +116,8 @@ const TreeVisualizer: React.FC<TreeVisualizerProps> = ({
       fillColor = '#4ade80'; // Bright green for visited
       strokeColor = '#22c55e';
     } else if (node.processing) {
-      fillColor = '#8b5cf6'; // Purple for processing
-      strokeColor = '#a855f7';
+      fillColor = '#1a5d3a'; // Green for processing
+      strokeColor = '#4ade80';
     }
 
     // Draw node circle
@@ -175,7 +175,7 @@ const TreeVisualizer: React.FC<TreeVisualizerProps> = ({
   const drawLegend = (ctx: CanvasRenderingContext2D) => {
     const legendItems = [
       { color: '#1a5d3a', strokeColor: '#4ade80', label: 'Unvisited' },
-      { color: '#8b5cf6', strokeColor: '#a855f7', label: 'Processing' },
+      { color: '#1a5d3a', strokeColor: '#4ade80', label: 'Processing' },
       { color: '#fbbf24', strokeColor: '#f59e0b', label: 'Current' },
       { color: '#4ade80', strokeColor: '#22c55e', label: 'Visited' }
     ];
