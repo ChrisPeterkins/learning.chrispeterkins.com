@@ -1,9 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import OfflineDemo from './components/OfflineDemo';
+import OfflineAdvanced from './components/OfflineAdvanced';
 import CacheStrategies from './components/CacheStrategies';
 import PushNotifications from './components/PushNotifications';
+import PushNotificationsAdvanced from './components/PushNotificationsAdvanced';
 import BackgroundSync from './components/BackgroundSync';
+import BackgroundSyncAdvanced from './components/BackgroundSyncAdvanced';
 import InstallPWA from './components/InstallPWA';
 import PerformanceMetrics from './components/PerformanceMetrics';
 
@@ -24,7 +27,10 @@ function Navigation() {
       <div className="nav-section">
         <h3>Core Features</h3>
         <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          Offline Functionality
+          Offline Demo
+        </NavLink>
+        <NavLink to="/offline-advanced" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          Advanced Offline
         </NavLink>
         <NavLink to="/cache-strategies" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           Cache Strategies
@@ -32,8 +38,14 @@ function Navigation() {
         <NavLink to="/push-notifications" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           Push Notifications
         </NavLink>
+        <NavLink to="/push-advanced" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          Advanced Push
+        </NavLink>
         <NavLink to="/background-sync" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           Background Sync
+        </NavLink>
+        <NavLink to="/sync-advanced" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          Advanced Sync
         </NavLink>
       </div>
 
@@ -63,9 +75,12 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<OfflineDemo />} />
+            <Route path="/offline-advanced" element={<OfflineAdvanced />} />
             <Route path="/cache-strategies" element={<CacheStrategies />} />
             <Route path="/push-notifications" element={<PushNotifications />} />
+            <Route path="/push-advanced" element={<PushNotificationsAdvanced />} />
             <Route path="/background-sync" element={<BackgroundSync />} />
+            <Route path="/sync-advanced" element={<BackgroundSyncAdvanced />} />
             <Route path="/install-pwa" element={<InstallPWA />} />
             <Route path="/performance" element={<PerformanceMetrics />} />
           </Routes>
