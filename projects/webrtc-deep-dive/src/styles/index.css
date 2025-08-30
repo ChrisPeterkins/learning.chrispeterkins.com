@@ -473,6 +473,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
   .navigation {
     width: 100%;
     position: static;
