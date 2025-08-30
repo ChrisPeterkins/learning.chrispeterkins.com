@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-primary: #0a0f0d;
+  --bg-secondary: rgba(15, 25, 20, 0.6);
+  --text-primary: #f0f4f2;
+  --text-secondary: #a8bdb2;
+  --text-muted: #8fa99b;
+  --accent-green: #1a5d3a;
+  --accent-green-bright: #4ade80;
+  --border-primary: rgba(26, 93, 58, 0.2);
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #0a0f0d;
@@ -44,6 +55,7 @@ code, pre {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  z-index: 1000;
 }
 
 .nav-header {
