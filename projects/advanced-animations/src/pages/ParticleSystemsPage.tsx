@@ -586,7 +586,7 @@ const ParticleSystemsPage: React.FC = () => {
       // Draw attractors
       attractors.forEach(a => {
         ctx.save();
-        ctx.strokeStyle = a.strength > 0 ? '#4ade80' : '#f87171';
+        ctx.strokeStyle = a.strength > 0 ? '#4ade80' : '#dc2626';
         ctx.lineWidth = 2;
         ctx.setLineDash([5, 5]);
         ctx.beginPath();
@@ -743,7 +743,7 @@ const ParticleSystemsPage: React.FC = () => {
         .particle-canvas {
           width: 100%;
           height: 400px;
-          background: linear-gradient(180deg, #0a0f0d, #1a1a2e);
+          background: var(--bg-primary);
           border-radius: 1rem;
           margin-top: 2rem;
         }
@@ -757,7 +757,7 @@ const ParticleSystemsPage: React.FC = () => {
           flex-wrap: wrap;
           gap: 1rem;
           padding: 1.5rem;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
@@ -774,7 +774,7 @@ const ParticleSystemsPage: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           font-weight: 600;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .control-input {
@@ -783,8 +783,8 @@ const ParticleSystemsPage: React.FC = () => {
 
         .control-button {
           padding: 0.75rem 1.5rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          color: white;
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
+          color: var(--text-primary);
           border: none;
           border-radius: 8px;
           font-weight: 600;
@@ -806,11 +806,11 @@ const ParticleSystemsPage: React.FC = () => {
           gap: 0.75rem;
           font-size: 2rem;
           margin-bottom: 1rem;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .section-description {
-          color: #666;
+          color: var(--text-secondary);
           margin-bottom: 1rem;
         }
       `}</style>

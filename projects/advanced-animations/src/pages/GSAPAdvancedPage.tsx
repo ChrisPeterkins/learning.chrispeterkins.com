@@ -327,8 +327,8 @@ const GSAPAdvancedPage: React.FC = () => {
             />
             <defs>
               <linearGradient id="morphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#667eea" />
-                <stop offset="100%" stopColor="#764ba2" />
+                <stop offset="0%" stopColor="#1a5d3a" />
+                <stop offset="100%" stopColor="#0f4d2a" />
               </linearGradient>
             </defs>
           </svg>
@@ -345,7 +345,7 @@ const GSAPAdvancedPage: React.FC = () => {
               <path
                 id="motionPath"
                 d="M 50 100 Q 150 20 200 100 T 350 100"
-                stroke="#667eea"
+                stroke="#1a5d3a"
                 strokeWidth="2"
                 fill="none"
                 strokeDasharray="5,5"
@@ -401,10 +401,10 @@ const GSAPAdvancedPage: React.FC = () => {
         <div className="demo-card">
           <h3 className="demo-title">Draggable Elements</h3>
           <div className="drag-container">
-            <div className="draggable-box" style={{ background: '#667eea' }}>
+            <div className="draggable-box" style={{ background: '#1a5d3a' }}>
               Drag Me
             </div>
-            <div className="draggable-box" style={{ background: '#764ba2', left: '100px' }}>
+            <div className="draggable-box" style={{ background: '#0f4d2a', left: '100px' }}>
               Drag Me Too
             </div>
           </div>
@@ -453,12 +453,12 @@ const GSAPAdvancedPage: React.FC = () => {
           position: absolute;
           width: 40px;
           height: 40px;
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
+          color: var(--text-primary);
           top: -20px;
           left: -20px;
         }
@@ -466,7 +466,7 @@ const GSAPAdvancedPage: React.FC = () => {
         .animated-text {
           font-size: 2rem;
           font-weight: bold;
-          background: linear-gradient(90deg, #667eea, #764ba2);
+          background: linear-gradient(90deg, #1a5d3a, #0a2f1d);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           min-height: 3rem;
@@ -476,7 +476,7 @@ const GSAPAdvancedPage: React.FC = () => {
           position: relative;
           height: 400px;
           overflow: hidden;
-          background: linear-gradient(180deg, #1a1a2e, #0f0f1e);
+          background: var(--bg-primary);
           border-radius: 1rem;
         }
 
@@ -491,7 +491,7 @@ const GSAPAdvancedPage: React.FC = () => {
           padding: 1rem 2rem;
           border-radius: 8px;
           font-weight: bold;
-          color: white;
+          color: var(--text-primary);
         }
 
         .bg-layer {
@@ -520,8 +520,8 @@ const GSAPAdvancedPage: React.FC = () => {
 
         .magnetic-button {
           padding: 1rem 2rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          color: white;
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
+          color: var(--text-primary);
           border: none;
           border-radius: 8px;
           font-size: 1.1rem;
@@ -550,7 +550,7 @@ const GSAPAdvancedPage: React.FC = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
+          color: var(--text-primary);
           font-weight: bold;
           cursor: grab;
           top: 50%;
@@ -575,14 +575,14 @@ const GSAPAdvancedPage: React.FC = () => {
         .infinite-item {
           flex-shrink: 0;
           padding: 1rem 2rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          color: white;
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
+          color: var(--text-primary);
           border-radius: 8px;
           font-weight: bold;
         }
 
         .demo-card {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
           margin: 2rem 0;
@@ -594,7 +594,7 @@ const GSAPAdvancedPage: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           margin-bottom: 1.5rem;
-          color: #333;
+          color: var(--text-primary);
           font-size: 1.2rem;
         }
       `}</style>

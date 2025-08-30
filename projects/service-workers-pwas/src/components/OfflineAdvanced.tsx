@@ -541,7 +541,7 @@ const OfflineAdvanced: React.FC = () => {
           gap: 1rem;
           font-size: 2.5rem;
           margin-bottom: 1rem;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .page-subtitle {
@@ -555,10 +555,10 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .status-card {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px var(--shadow-green);
           margin-bottom: 2rem;
         }
 
@@ -580,7 +580,7 @@ const OfflineAdvanced: React.FC = () => {
           flex-direction: column;
           align-items: center;
           padding: 1.5rem;
-          background: #f8f9fa;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.75rem;
           transition: transform 0.2s;
         }
@@ -601,7 +601,7 @@ const OfflineAdvanced: React.FC = () => {
           width: 32px;
           height: 32px;
           margin-bottom: 0.5rem;
-          color: #667eea;
+          color: #1a5d3a;
         }
 
         .status-label {
@@ -613,15 +613,15 @@ const OfflineAdvanced: React.FC = () => {
         .status-value {
           font-size: 1.25rem;
           font-weight: 600;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .section {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
           margin-bottom: 2rem;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px var(--shadow-green);
         }
 
         .section-header {
@@ -634,7 +634,7 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .section-header h2 {
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin: 0;
         }
 
@@ -662,7 +662,7 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .btn-primary {
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           color: white;
         }
 
@@ -683,8 +683,8 @@ const OfflineAdvanced: React.FC = () => {
 
         .btn-outline {
           background: transparent;
-          border: 2px solid #667eea;
-          color: #667eea;
+          border: 2px solid #1a5d3a;
+          color: #1a5d3a;
         }
 
         .btn-icon {
@@ -706,7 +706,7 @@ const OfflineAdvanced: React.FC = () => {
           top: 0;
           left: 0;
           height: 100%;
-          background: linear-gradient(90deg, #667eea, #764ba2);
+          background: linear-gradient(90deg, #1a5d3a, #0a2f1d);
           transition: width 0.3s ease;
         }
 
@@ -724,7 +724,7 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .cache-list h3 {
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin-bottom: 1rem;
         }
 
@@ -738,7 +738,7 @@ const OfflineAdvanced: React.FC = () => {
           align-items: center;
           gap: 1rem;
           padding: 1rem;
-          background: #f8f9fa;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.5rem;
           transition: background 0.2s;
         }
@@ -753,9 +753,9 @@ const OfflineAdvanced: React.FC = () => {
           justify-content: center;
           width: 40px;
           height: 40px;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.5rem;
-          color: #667eea;
+          color: #1a5d3a;
         }
 
         .resource-details {
@@ -766,7 +766,7 @@ const OfflineAdvanced: React.FC = () => {
 
         .resource-url {
           font-weight: 600;
-          color: #1a1a2e;
+          color: var(--text-primary);
           word-break: break-all;
         }
 
@@ -790,7 +790,7 @@ const OfflineAdvanced: React.FC = () => {
           gap: 1rem;
           align-items: center;
           padding: 1rem;
-          background: #f8f9fa;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.5rem;
           border-left: 4px solid transparent;
           transition: all 0.2s;
@@ -801,7 +801,7 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .queue-item.syncing {
-          border-left-color: #60a5fa;
+          border-left-color: #4ade80;
           background: #eff6ff;
         }
 
@@ -837,7 +837,7 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .status-icon.syncing {
-          color: #60a5fa;
+          color: #4ade80;
         }
 
         .status-icon.pending {
@@ -860,7 +860,7 @@ const OfflineAdvanced: React.FC = () => {
 
         .queue-action {
           font-weight: 600;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .queue-meta {
@@ -870,7 +870,7 @@ const OfflineAdvanced: React.FC = () => {
 
         .queue-data {
           padding: 0.5rem;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.25rem;
         }
 
@@ -902,7 +902,7 @@ const OfflineAdvanced: React.FC = () => {
 
         .capability-card {
           padding: 2rem;
-          background: #f8f9fa;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 1rem;
           text-align: center;
           transition: transform 0.2s;
@@ -918,7 +918,7 @@ const OfflineAdvanced: React.FC = () => {
           justify-content: center;
           width: 60px;
           height: 60px;
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           border-radius: 1rem;
           color: white;
           margin-bottom: 1rem;
@@ -930,7 +930,7 @@ const OfflineAdvanced: React.FC = () => {
         }
 
         .capability-card h3 {
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin-bottom: 0.5rem;
         }
 

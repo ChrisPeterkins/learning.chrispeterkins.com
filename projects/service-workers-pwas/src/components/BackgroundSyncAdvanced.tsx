@@ -691,7 +691,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
           gap: 1rem;
           font-size: 2.5rem;
           margin-bottom: 1rem;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .page-subtitle {
@@ -705,10 +705,10 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .dashboard {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px var(--shadow-green);
           margin-bottom: 2rem;
         }
 
@@ -721,7 +721,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .dashboard-header h2 {
           margin: 0;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .connection-status {
@@ -729,7 +729,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           padding: 0.5rem 1rem;
-          background: #f3f4f6;
+          background: rgba(15, 25, 20, 0.3);
           border-radius: 2rem;
           font-weight: 600;
         }
@@ -751,7 +751,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .stat-card {
           padding: 1.5rem;
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.75rem;
           text-align: center;
         }
@@ -771,12 +771,12 @@ const BackgroundSyncAdvanced: React.FC = () => {
         .stat-value {
           font-size: 2rem;
           font-weight: 700;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .stat-label {
           font-size: 0.875rem;
-          color: #6b7280;
+          color: var(--text-secondary);
           text-transform: uppercase;
           letter-spacing: 0.05em;
           margin-top: 0.5rem;
@@ -797,14 +797,14 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .control-group label {
           font-weight: 600;
-          color: #374151;
+          color: var(--text-primary);
         }
 
         .select-input {
           padding: 0.5rem;
           border: 1px solid #e5e7eb;
           border-radius: 0.375rem;
-          background: white;
+          background: var(--bg-secondary);
         }
 
         .switch-label {
@@ -843,7 +843,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .switch-label input:checked + .switch {
-          background-color: #667eea;
+          background-color: #1a5d3a;
         }
 
         .switch-label input:checked + .switch::before {
@@ -851,15 +851,15 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .section {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
           margin-bottom: 2rem;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px var(--shadow-green);
         }
 
         .section h2 {
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin-bottom: 1.5rem;
         }
 
@@ -897,7 +897,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .btn-primary {
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           color: white;
         }
 
@@ -908,7 +908,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .btn-secondary {
           background: #e5e7eb;
-          color: #374151;
+          color: var(--text-primary);
         }
 
         .btn-danger {
@@ -919,11 +919,11 @@ const BackgroundSyncAdvanced: React.FC = () => {
         .btn-outline {
           background: transparent;
           border: 2px solid #e5e7eb;
-          color: #374151;
+          color: var(--text-primary);
         }
 
         .btn-outline:hover {
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
         }
 
         .btn-icon {
@@ -939,7 +939,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .strategy-card {
           padding: 1.5rem;
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           border: 2px solid transparent;
           border-radius: 0.75rem;
           cursor: pointer;
@@ -947,12 +947,12 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .strategy-card:hover {
-          border-color: #667eea;
+          border-color: #1a5d3a;
           transform: translateY(-2px);
         }
 
         .strategy-card.active {
-          border-color: #667eea;
+          border-color: #1a5d3a;
           background: linear-gradient(135deg, #eef2ff, #f9fafb);
         }
 
@@ -962,19 +962,19 @@ const BackgroundSyncAdvanced: React.FC = () => {
           justify-content: center;
           width: 48px;
           height: 48px;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.5rem;
           margin-bottom: 1rem;
-          color: #667eea;
+          color: #1a5d3a;
         }
 
         .strategy-card h3 {
           margin: 0 0 0.5rem 0;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .strategy-card p {
-          color: #6b7280;
+          color: var(--text-secondary);
           margin-bottom: 1rem;
         }
 
@@ -991,11 +991,11 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .config-item span {
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .config-item strong {
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .test-actions {
@@ -1016,7 +1016,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
           gap: 1rem;
           align-items: start;
           padding: 1rem;
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.5rem;
           border-left: 4px solid transparent;
         }
@@ -1026,7 +1026,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .task-item.syncing {
-          border-left-color: #60a5fa;
+          border-left-color: #4ade80;
           background: #eff6ff;
         }
 
@@ -1062,7 +1062,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .status-icon.syncing {
-          color: #3b82f6;
+          color: #2d7a4e;
         }
 
         .status-icon.pending {
@@ -1084,9 +1084,9 @@ const BackgroundSyncAdvanced: React.FC = () => {
           justify-content: center;
           width: 32px;
           height: 32px;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.25rem;
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .task-details {
@@ -1102,7 +1102,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .task-type {
           font-weight: 600;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .priority-badge {
@@ -1124,15 +1124,15 @@ const BackgroundSyncAdvanced: React.FC = () => {
         }
 
         .priority-badge.low {
-          background: #f3f4f6;
-          color: #4b5563;
+          background: rgba(15, 25, 20, 0.3);
+          color: var(--text-secondary);
         }
 
         .task-meta {
           display: flex;
           gap: 1rem;
           font-size: 0.875rem;
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .retry-badge {
@@ -1163,13 +1163,13 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .progress-fill {
           height: 100%;
-          background: linear-gradient(90deg, #667eea, #764ba2);
+          background: linear-gradient(90deg, #1a5d3a, #0a2f1d);
           transition: width 0.3s ease;
         }
 
         .task-data {
           padding: 0.75rem;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.25rem;
           max-width: 300px;
         }
@@ -1177,7 +1177,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
         .task-data code {
           font-family: 'Courier New', monospace;
           font-size: 0.75rem;
-          color: #4b5563;
+          color: var(--text-secondary);
           white-space: pre-wrap;
           word-break: break-all;
         }
@@ -1186,7 +1186,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
           max-height: 300px;
           overflow-y: auto;
           padding: 1rem;
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.5rem;
         }
 
@@ -1197,7 +1197,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
           padding: 0.5rem;
           font-family: 'Courier New', monospace;
           font-size: 0.875rem;
-          color: #4b5563;
+          color: var(--text-secondary);
           border-bottom: 1px solid #e5e7eb;
         }
 
@@ -1207,7 +1207,7 @@ const BackgroundSyncAdvanced: React.FC = () => {
 
         .empty-message {
           text-align: center;
-          color: #9ca3af;
+          color: var(--text-muted);
           padding: 3rem;
           font-style: italic;
         }

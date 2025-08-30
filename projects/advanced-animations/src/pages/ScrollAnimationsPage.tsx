@@ -452,7 +452,7 @@ const ScrollAnimationsPage: React.FC = () => {
 
         .progress-bar {
           height: 100%;
-          background: linear-gradient(90deg, #667eea, #764ba2);
+          background: linear-gradient(90deg, #1a5d3a, #0a2f1d);
           transform-origin: left;
           transform: scaleX(0);
         }
@@ -495,7 +495,7 @@ const ScrollAnimationsPage: React.FC = () => {
         }
 
         .hero-accent {
-          background: linear-gradient(90deg, #667eea, #764ba2);
+          background: linear-gradient(90deg, #1a5d3a, #0a2f1d);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -511,8 +511,8 @@ const ScrollAnimationsPage: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           padding: 1rem 2rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          color: white;
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
+          color: var(--text-primary);
           border: none;
           border-radius: 50px;
           font-size: 1.1rem;
@@ -527,7 +527,7 @@ const ScrollAnimationsPage: React.FC = () => {
 
         .timeline-section {
           padding: 8rem 2rem;
-          background: linear-gradient(180deg, #0a0f0d, #1a1a2e);
+          background: var(--bg-primary);
         }
 
         .timeline-container {
@@ -555,7 +555,7 @@ const ScrollAnimationsPage: React.FC = () => {
           position: absolute;
           width: 2px;
           height: 100px;
-          background: linear-gradient(180deg, transparent, #667eea, transparent);
+          background: linear-gradient(180deg, transparent, #1a5d3a, transparent);
           left: 50%;
           top: -50px;
           transform-origin: top;
@@ -572,7 +572,7 @@ const ScrollAnimationsPage: React.FC = () => {
         .timeline-icon {
           display: inline-flex;
           padding: 0.5rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           border-radius: 8px;
           margin-bottom: 1rem;
         }
@@ -591,7 +591,7 @@ const ScrollAnimationsPage: React.FC = () => {
         }
 
         .scroll-card {
-          background: white;
+          background: var(--bg-secondary);
           padding: 2rem;
           border-radius: 1rem;
           box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -601,9 +601,9 @@ const ScrollAnimationsPage: React.FC = () => {
         .card-icon {
           display: inline-flex;
           padding: 1rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           border-radius: 12px;
-          color: white;
+          color: var(--text-primary);
           margin-bottom: 1rem;
         }
 
@@ -621,7 +621,7 @@ const ScrollAnimationsPage: React.FC = () => {
 
         .pin-content {
           text-align: center;
-          color: white;
+          color: var(--text-primary);
         }
 
         .pin-title {
@@ -656,7 +656,7 @@ const ScrollAnimationsPage: React.FC = () => {
 
         .slide-content {
           text-align: center;
-          color: white;
+          color: var(--text-primary);
         }
 
         .slide-content h2 {
@@ -672,7 +672,7 @@ const ScrollAnimationsPage: React.FC = () => {
 
         .split-text-section {
           padding: 8rem 2rem;
-          background: white;
+          background: var(--bg-secondary);
         }
 
         .split-text {
@@ -704,8 +704,8 @@ const ScrollAnimationsPage: React.FC = () => {
 
         .reveal-card {
           padding: 3rem 2rem;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          color: white;
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
+          color: var(--text-primary);
           border-radius: 1rem;
           text-align: center;
           font-size: 1.2rem;
@@ -716,12 +716,12 @@ const ScrollAnimationsPage: React.FC = () => {
           text-align: center;
           font-size: 3rem;
           margin-bottom: 3rem;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .timeline-section .section-title,
         .pin-section .section-title {
-          color: white;
+          color: var(--text-primary);
         }
       `}</style>
     </div>

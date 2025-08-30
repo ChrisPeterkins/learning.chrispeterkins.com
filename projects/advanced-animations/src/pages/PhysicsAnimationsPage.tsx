@@ -186,7 +186,7 @@ const PhysicsAnimationsPage: React.FC = () => {
       const y = 50 + length * Math.cos(angle);
       
       // Draw string
-      ctx.strokeStyle = '#667eea';
+      ctx.strokeStyle = '#1a5d3a';
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(canvas.width / 2, 50);
@@ -194,15 +194,15 @@ const PhysicsAnimationsPage: React.FC = () => {
       ctx.stroke();
       
       // Draw pivot
-      ctx.fillStyle = '#764ba2';
+      ctx.fillStyle = '#0f4d2a';
       ctx.beginPath();
       ctx.arc(canvas.width / 2, 50, 8, 0, Math.PI * 2);
       ctx.fill();
       
       // Draw bob
-      ctx.fillStyle = '#667eea';
+      ctx.fillStyle = '#1a5d3a';
       ctx.shadowBlur = 20;
-      ctx.shadowColor = '#667eea';
+      ctx.shadowColor = '#1a5d3a';
       ctx.beginPath();
       ctx.arc(x, y, 20, 0, Math.PI * 2);
       ctx.fill();
@@ -384,7 +384,7 @@ const PhysicsAnimationsPage: React.FC = () => {
       
       // Draw nodes
       nodes.forEach(node => {
-        ctx.fillStyle = node === selectedNode ? '#f87171' : '#667eea';
+        ctx.fillStyle = node === selectedNode ? '#dc2626' : '#1a5d3a';
         ctx.beginPath();
         ctx.arc(node.x, node.y, 8, 0, Math.PI * 2);
         ctx.fill();
@@ -521,7 +521,7 @@ const PhysicsAnimationsPage: React.FC = () => {
       // Draw pinned points
       points.forEach(point => {
         if (point.pinned) {
-          ctx.fillStyle = '#f87171';
+          ctx.fillStyle = '#dc2626';
           ctx.beginPath();
           ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
           ctx.fill();
@@ -657,7 +657,7 @@ const PhysicsAnimationsPage: React.FC = () => {
         .physics-canvas {
           width: 100%;
           height: 400px;
-          background: linear-gradient(180deg, #f5f5f5, #e0e0e0);
+          background: linear-gradient(180deg, rgba(15, 25, 20, 0.05), rgba(15, 25, 20, 0.1));
           border-radius: 1rem;
           margin-top: 1rem;
           cursor: grab;
@@ -668,7 +668,7 @@ const PhysicsAnimationsPage: React.FC = () => {
         }
 
         .dark-canvas {
-          background: linear-gradient(180deg, #0a0f0d, #1a1a2e);
+          background: var(--bg-primary);
         }
 
         .controls {
@@ -676,7 +676,7 @@ const PhysicsAnimationsPage: React.FC = () => {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 1rem;
           padding: 1.5rem;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
@@ -689,7 +689,7 @@ const PhysicsAnimationsPage: React.FC = () => {
 
         .control-label {
           font-weight: 600;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .control-input {
@@ -706,11 +706,11 @@ const PhysicsAnimationsPage: React.FC = () => {
           gap: 0.75rem;
           font-size: 2rem;
           margin-bottom: 0.5rem;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .section-description {
-          color: #666;
+          color: var(--text-secondary);
           margin-bottom: 1rem;
         }
       `}</style>

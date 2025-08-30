@@ -802,7 +802,7 @@ const PushNotificationsAdvanced: React.FC = () => {
           gap: 1rem;
           font-size: 2.5rem;
           margin-bottom: 1rem;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .page-subtitle {
@@ -816,10 +816,10 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .status-card {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px var(--shadow-green);
           margin-bottom: 2rem;
         }
 
@@ -873,7 +873,7 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .status-value.inactive {
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .status-value.endpoint {
@@ -906,15 +906,15 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .section {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 1rem;
           padding: 2rem;
           margin-bottom: 2rem;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px var(--shadow-green);
         }
 
         .section h2 {
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin-bottom: 1.5rem;
         }
 
@@ -949,7 +949,7 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .btn-primary {
-          background: linear-gradient(135deg, #667eea, #764ba2);
+          background: linear-gradient(135deg, #1a5d3a, #0a2f1d);
           color: white;
         }
 
@@ -960,7 +960,7 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .btn-secondary {
           background: #e5e7eb;
-          color: #374151;
+          color: var(--text-primary);
         }
 
         .btn-danger {
@@ -986,7 +986,7 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .template-card {
           padding: 1.5rem;
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           border: 2px solid transparent;
           border-radius: 0.75rem;
           cursor: pointer;
@@ -994,12 +994,12 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .template-card:hover {
-          border-color: #667eea;
+          border-color: #1a5d3a;
           transform: translateY(-2px);
         }
 
         .template-card.active {
-          border-color: #667eea;
+          border-color: #1a5d3a;
           background: #eef2ff;
         }
 
@@ -1012,11 +1012,11 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .template-header h3 {
           margin: 0;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .template-body {
-          color: #4b5563;
+          color: var(--text-secondary);
           margin-bottom: 1rem;
         }
 
@@ -1028,11 +1028,11 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .action-chip {
           padding: 0.25rem 0.75rem;
-          background: white;
+          background: var(--bg-secondary);
           border: 1px solid #e5e7eb;
           border-radius: 1rem;
           font-size: 0.875rem;
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .badge {
@@ -1049,8 +1049,8 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .badge-silent {
-          background: #f3f4f6;
-          color: #6b7280;
+          background: rgba(15, 25, 20, 0.3);
+          color: var(--text-secondary);
         }
 
         .builder-grid {
@@ -1079,7 +1079,7 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .form-group label {
           font-weight: 600;
-          color: #374151;
+          color: var(--text-primary);
         }
 
         .form-group input,
@@ -1093,7 +1093,7 @@ const PushNotificationsAdvanced: React.FC = () => {
         .form-group input:focus,
         .form-group textarea:focus {
           outline: none;
-          border-color: #667eea;
+          border-color: #1a5d3a;
         }
 
         .form-options {
@@ -1116,18 +1116,18 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .builder-preview {
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           padding: 1.5rem;
           border-radius: 0.75rem;
         }
 
         .builder-preview h3 {
           margin-bottom: 1rem;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .notification-preview {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.5rem;
           padding: 1rem;
           box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -1147,16 +1147,16 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .preview-title {
           font-weight: 600;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .preview-app {
           font-size: 0.875rem;
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .preview-body {
-          color: #4b5563;
+          color: var(--text-secondary);
           margin-bottom: 0.75rem;
         }
 
@@ -1174,10 +1174,10 @@ const PushNotificationsAdvanced: React.FC = () => {
         .preview-actions button {
           flex: 1;
           padding: 0.5rem;
-          background: #f3f4f6;
+          background: rgba(15, 25, 20, 0.3);
           border: 1px solid #e5e7eb;
           border-radius: 0.25rem;
-          color: #4b5563;
+          color: var(--text-secondary);
           cursor: pointer;
         }
 
@@ -1194,7 +1194,7 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .settings-group h3 {
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin-bottom: 0.5rem;
         }
 
@@ -1231,7 +1231,7 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .switch-label input:checked + .switch {
-          background-color: #667eea;
+          background-color: #1a5d3a;
         }
 
         .switch-label input:checked + .switch::before {
@@ -1266,7 +1266,7 @@ const PushNotificationsAdvanced: React.FC = () => {
           display: flex;
           gap: 1rem;
           padding: 1rem;
-          background: #f9fafb;
+          background: rgba(15, 25, 20, 0.4);
           border-radius: 0.5rem;
           border-left: 4px solid transparent;
         }
@@ -1276,7 +1276,7 @@ const PushNotificationsAdvanced: React.FC = () => {
         }
 
         .history-item.clicked {
-          border-left-color: #3b82f6;
+          border-left-color: #2d7a4e;
         }
 
         .history-item.dismissed {
@@ -1293,9 +1293,9 @@ const PushNotificationsAdvanced: React.FC = () => {
           justify-content: center;
           width: 32px;
           height: 32px;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 0.25rem;
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .history-details {
@@ -1304,12 +1304,12 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .history-title {
           font-weight: 600;
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin-bottom: 0.25rem;
         }
 
         .history-body {
-          color: #4b5563;
+          color: var(--text-secondary);
           margin-bottom: 0.5rem;
         }
 
@@ -1318,7 +1318,7 @@ const PushNotificationsAdvanced: React.FC = () => {
           gap: 1rem;
           align-items: center;
           font-size: 0.875rem;
-          color: #6b7280;
+          color: var(--text-secondary);
         }
 
         .status-badge {
@@ -1360,7 +1360,7 @@ const PushNotificationsAdvanced: React.FC = () => {
 
         .empty-message {
           text-align: center;
-          color: #9ca3af;
+          color: var(--text-muted);
           padding: 3rem;
           font-style: italic;
         }
